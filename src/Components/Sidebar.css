@@ -1,0 +1,9 @@
+.sidebarContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.sidebarNavContainer{
+    display: flex;
+    flex-direction: column;
+}
