@@ -1,0 +1,14 @@
+.headerContainer{
+    background-color: blue;
+    width: 100%;
+    position: fixed;
+    z-index: var(--index2);
+}
+.navbar.ecommerce{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+.navSearch.ecommerce{
+    width: 400px;
+}

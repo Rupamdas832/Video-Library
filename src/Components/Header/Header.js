@@ -1,12 +1,13 @@
 import React from 'react'
 import "./Header.css"
+import {FaSearch} from "react-icons/fa"
 
 export const Header = () => {
     return (
         <div className="headerContainer">
             <div class="navbar ecommerce">
                 <div class="navSearch ecommerce">
-                    <label><i class="fab fa-searchengin"></i></label>
+                    <label><FaSearch/></label>
                     <input placeholder="Quick search anything"/>
                 </div>
                 <div class="navAction ecommerce">

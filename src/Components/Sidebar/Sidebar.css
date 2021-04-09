@@ -1,0 +1,23 @@
+.sidebarContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.sidebarNavContainer{
+    display: flex;
+    flex-direction: column;
+}
+.sidebarNavItem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+    color: black;
+}
+.sidebarNavLinks{
+    text-decoration: none;
+}
+.sidebarNavItem p{
+    margin-left: 1rem;
+    text-decoration: none;
+}

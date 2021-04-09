@@ -1,0 +1,17 @@
+.homeVideoList{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.ecommerceCard{
+    justify-content: baseline;
+    width: 18rem;
+    margin: 1 0.2rem;
+}
+.cardImg{
+    width: 99%;
+    height: 200px;
+}
+.iframe.medium{
+    height: 100%;
+    width: 100%;
+}

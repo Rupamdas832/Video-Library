@@ -1,7 +1,7 @@
 import React from 'react'
 import "./HeroSection.css"
 import {Route, Switch} from "react-router-dom"
-import { History, Home, LikedVideos, Playlist, WatchLater } from '../Pages'
+import { History, Home, LikedVideos, Playlist, WatchLater } from '../../Pages'
 
 export const HeroSection = () => {
     return (
