@@ -14,8 +14,9 @@
     justify-content: baseline;
     color: black;
 }
-.sidebarNavLinks{
-    text-decoration: none;
+.sidebarNavItem:hover{
+    border-right: 5px solid var(--whitePale);
+    color: var(--whitePale);
 }
 .sidebarNavItem p{
     margin-left: 1rem;

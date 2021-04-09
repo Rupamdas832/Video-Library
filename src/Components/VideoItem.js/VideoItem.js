@@ -1,7 +1,8 @@
 import React from 'react'
 import "./VideoItem.css"
 
-export const VideoItem = ({url}) =>{
+export const VideoItem = ({video}) =>{
+    const {id,url,category} = video;
     return (
             <div className="ecommerceCard">
             <div className="cardImg">
@@ -12,7 +13,6 @@ export const VideoItem = ({url}) =>{
             </div>
             <div className="cardBody">
                 <p>boAt Airdopes 131 Bluetooth Headset</p>
-                <p> Bluetoot boAt Airdopes 131boAt Airdopes 131</p>
             </div>  
         </div>
     )

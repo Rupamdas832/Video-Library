@@ -1,0 +1,35 @@
+.videoDetailContainer{
+    padding: 3rem 0 0 1rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 1rem;
+    min-height: 90vh;
+}
+.videoDetail{
+    width: 100%;
+    height: 60vh;
+}
+.iframe.large{
+    width: 100%;
+    height: 70vh;
+}
+.videoDesc{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(180, 180, 180, 0.801);
+}
+.videoLike{
+    display: flex;
+    flex-direction: row;
+}
+.input{
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+}
+.input input{
+    width: 100%;
+}

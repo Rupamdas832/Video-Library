@@ -12,31 +12,31 @@ export const Sidebar = () =>{
         <div className="sidebarContainer">
             <h1>GRAD</h1>
             <div className="sidebarNavContainer">
-                <Link to="/" className="sidebarNavLinks">
+                <Link to="/" className="routerLink">
                     <div className="sidebarNavItem">
                         <ImHome/>
                         <p>Home</p>
                     </div>
                 </Link>
-                <Link to="/playlist" className="sidebarNavLinks">
+                <Link to="/playlist" className="routerLink">
                     <div className="sidebarNavItem">
                         <BsMusicNoteList/>
                         <p>Playlist</p>
                     </div>
                 </Link>
-                <Link to="/watchlater" className="sidebarNavLinks">
+                <Link to="/watch-later" className="routerLink">
                     <div className="sidebarNavItem">
                         <MdWatchLater/>
                         <p>Watch Later</p>
                     </div>
                 </Link>
-                <Link to="/likedvideos" className="sidebarNavLinks">
+                <Link to="/liked-videos" className="routerLink">
                     <div className="sidebarNavItem">
                         <AiTwotoneLike/>
                         <p>Liked Videos</p>
                     </div>
                 </Link>
-                <Link to="/history" className="sidebarNavLinks">
+                <Link to="/history" className="routerLink">
                     <div className="sidebarNavItem">
                         <FaHistory/>
                         <p>History</p>

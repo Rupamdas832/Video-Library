@@ -23,5 +23,8 @@
 .rightAppSection{
     display: flex;
     flex-direction: column;
-    margin-left: 12rem;
+    margin-left: 11rem;
+}
+.routerLink{
+    text-decoration: none;
 }
