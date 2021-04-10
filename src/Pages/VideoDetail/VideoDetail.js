@@ -4,9 +4,9 @@ import { AiTwotoneLike } from 'react-icons/ai'
 import { BsMusicNoteList } from 'react-icons/bs'
 import { MdWatchLater } from 'react-icons/md'
 import { useParams } from 'react-router-dom'
-import VideoList from '../Server/VideoData'
+import VideoList from "../../Server/VideoData"
 import "./VideoDetail.css"
-import { useStore } from '../Store/storeContext'
+import { useStore } from '../../Store/storeContext'
 
 export const VideoDetail = () =>{
 
@@ -15,7 +15,7 @@ export const VideoDetail = () =>{
     const {dispatch} = useStore()
 
     const selectedVideo = VideoList.find(video => video.id === videoId)
-    const {id, title} = selectedVideo
+    const {id, title, channelName} = selectedVideo
 
     return (
         <div className="videoDetailContainer">
@@ -40,10 +40,15 @@ export const VideoDetail = () =>{
                         </div>
                     </div>
                 </div>
+                <div className="videoChannelName">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNStYe1LPjbp6FEUZI4BWewc8M56OBYf2Wyg&usqp=CAU" className="avatar" alt="profile"/>
+                    <p>{channelName}</p>
+                </div>
             </div>
             <div className="videoNotes">
                 <h3>Take Notes</h3>
                 <div className="input">
+                    
                     <input placeholder="Enter notes"/>
                 </div>
             </div>

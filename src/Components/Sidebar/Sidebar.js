@@ -6,6 +6,7 @@ import {BsMusicNoteList} from "react-icons/bs"
 import {FaHistory} from "react-icons/fa"
 import {MdWatchLater} from "react-icons/md"
 import {AiTwotoneLike} from "react-icons/ai"
+import {CgListTree} from "react-icons/cg"
 
 export const Sidebar = () =>{
     return (
@@ -16,6 +17,12 @@ export const Sidebar = () =>{
                     <div className="sidebarNavItem">
                         <ImHome/>
                         <p>Home</p>
+                    </div>
+                </Link>
+                <Link to="/categories" className="routerLink">
+                    <div className="sidebarNavItem">
+                        <CgListTree/>
+                        <p>Categories</p>
                     </div>
                 </Link>
                 <Link to="/playlist" className="routerLink">

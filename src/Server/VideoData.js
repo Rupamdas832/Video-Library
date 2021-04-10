@@ -39,7 +39,7 @@ const VideoList = [
     id: "R3c4WjSFXJg&t=1464s",
     title: "iPhone Facial Capture with Unreal Engine | Unreal Fest Online 2020",
     category: "Animations || Unreal Engine 4",
-    channelName: ""
+    channelName: "Unreal Engine"
 },
 {
     id: "Akb4P71KL0s&list=PLZlv_N0_O1gZY3_IhqpQRlydvByd3OtSh",

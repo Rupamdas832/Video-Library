@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react"
 import StoreReducer from "./storeReducer"
+import VideoList from "../Server/VideoData"
 
 const StoreContext = createContext()
 
@@ -9,6 +10,7 @@ export const useStore = () => {
 
 export const StoreProvider = ({children}) => {
     const initialState = {
+        videoList: VideoList,
         likedVideos: [],
         watchLaterVideos: [],
         historyVideos: []

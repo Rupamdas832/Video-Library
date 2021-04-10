@@ -1,19 +1,19 @@
 import React from 'react'
-import { VideoItem } from '../Components'
+import { VideoItem } from '../../Components'
 import "./Home.css"
-import VideoList from "../Server/VideoData"
 import { Link } from 'react-router-dom'
-import { useStore } from '../Store/storeContext'
+import { useStore } from '../../Store/storeContext'
 
 export const Home = () => {
     
-    const {dispatch} = useStore()
+    const {state,dispatch} = useStore()
+    const {videoList} = state
    
     return (
         <div className="homeContainer">
             <h1>Home</h1>
             <div className="homeVideoList">
-            {VideoList.map((video) => {
+            {videoList.map((video) => {
                 return (
                     <Link className="routerLink" to={`/video-detail/${video.id}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
                         <VideoItem video={video} key={video.id}/>
