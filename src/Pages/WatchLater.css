@@ -1,7 +1,7 @@
-.homeContainer{
+.watchLaterContainer{
     padding: 0 0 0 1rem;
 }
-.homeVideoList{
+.watchLaterVideoList{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }

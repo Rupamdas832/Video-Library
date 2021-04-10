@@ -1,7 +1,7 @@
-.homeContainer{
+.historyContainer{
     padding: 0 0 0 1rem;
 }
-.homeVideoList{
+.historyVideoList{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }

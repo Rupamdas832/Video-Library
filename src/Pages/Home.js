@@ -1,11 +1,13 @@
 import React from 'react'
-import { VideoItem } from '../Components/VideoItem.js/VideoItem'
+import { VideoItem } from '../Components'
 import "./Home.css"
 import VideoList from "../Server/VideoData"
 import { Link } from 'react-router-dom'
+import { useStore } from '../Store/storeContext'
 
 export const Home = () => {
     
+    const {dispatch} = useStore()
    
     return (
         <div className="homeContainer">
@@ -13,13 +15,7 @@ export const Home = () => {
             <div className="homeVideoList">
             {VideoList.map((video) => {
                 return (
-                    <Link 
-                        state={{ course: video }} 
-                        to={{
-                            pathname: "/video-detail"
-                        }
-                        }  
-                        className="routerLink">
+                    <Link className="routerLink" to={`/video-detail/${video.id}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
                         <VideoItem video={video} key={video.id}/>
                     </Link>
                 )

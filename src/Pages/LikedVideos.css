@@ -1,7 +1,7 @@
-.homeContainer{
+.likedVideoContainer{
     padding: 0 0 0 1rem;
 }
-.homeVideoList{
+.likedVideoList{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
