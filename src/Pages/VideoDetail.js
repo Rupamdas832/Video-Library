@@ -1,27 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ReactPlayer from "react-player"
 import { AiTwotoneLike } from 'react-icons/ai'
 import { BsMusicNoteList } from 'react-icons/bs'
 import { MdWatchLater } from 'react-icons/md'
-import { useParams } from 'react-router'
-import VideoList from '../Server/Data'
+import { useLocation, useParams } from 'react-router-dom'
+import VideoList from '../Server/VideoData'
 import "./VideoDetail.css"
 
 export const VideoDetail = () =>{
 
-    const {videoId} = useParams()
-    const selectedVideo = VideoList.find(video => video.id === parseInt(videoId))
-    const {url,category} = selectedVideo
+    const {state: {course}} = useLocation();
+    console.log(course)
     return (
         <div className="videoDetailContainer">
             <div className="videoDetail">
                 <div className="videoDiv">
-                    <iframe 
-                    src={url} 
-                    className="iframe large"
-                    ></iframe>
+                    <ReactPlayer url={`https://youtube.com/watch?v=${course.id}`} controls width="100%" height="100%"/>
                 </div>
                 <div className="videoDesc">
-                    <p>Part 3, Level 1: Modifiers-Blender Beginner Tutorial</p>
+                    <p>{course.title}</p>
                     <div className="VideoLike">
                         <div className="tooltip">
                             <button className="btn unstyled"><AiTwotoneLike/></button>
@@ -40,9 +37,9 @@ export const VideoDetail = () =>{
             </div>
             <div className="videoNotes">
                 <h3>Take Notes</h3>
-                    <div className="input">
-                        <input placeholder="Enter notes"/>
-                    </div>
+                <div className="input">
+                    <input placeholder="Enter notes"/>
+                </div>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 const VideoList = [
     {
         id: 1,
-        url: "https://youtube.com/embed/TPrnSACiTJ4",
+        url: "https://youtube.com/watch?v=TPrnSACiTJ4&list=PLjEaoINr3zgEq0u2MzVgAaHEBt--xLB6U",
         category: "3D Modelling"
     },
     {
@@ -107,3 +107,4 @@ const VideoList = [
 ]
 
 export default VideoList;
+

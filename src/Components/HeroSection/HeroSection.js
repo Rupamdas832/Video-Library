@@ -12,7 +12,7 @@ export const HeroSection = () => {
                     <Route path="/playlist" component={Playlist}/>
                     <Route path="/liked-videos" component={LikedVideos}/>
                     <Route path="/watch-later" component={WatchLater}/>
-                    <Route path="/video-detail/:videoId" component={VideoDetail}/>
+                    <Route path="/video-detail" component={VideoDetail}/>
                 </Switch>
         </div>
     )

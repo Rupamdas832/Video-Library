@@ -1,18 +1,16 @@
 import React from 'react'
+import ReactPlayer from 'react-player';
 import "./VideoItem.css"
 
 export const VideoItem = ({video}) =>{
-    const {id,url,category} = video;
+    const {id, title} = video;
     return (
             <div className="ecommerceCard">
             <div className="cardImg">
-            <iframe 
-                src={url}  
-                className="iframe medium"
-            ></iframe>
+            <ReactPlayer url={`https://youtube.com/watch?v=${id}`} controls width="100%" height="100%"/>
             </div>
             <div className="cardBody">
-                <p>boAt Airdopes 131 Bluetooth Headset</p>
+                <p>{title}</p>
             </div>  
         </div>
     )
