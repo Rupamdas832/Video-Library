@@ -1,8 +1,8 @@
 import React from 'react'
 import "./HeroSection.css"
 import {Route, Switch} from "react-router-dom"
-import { History, Home, LikedVideos, Playlist, VideoDetail, WatchLater } from '../../Pages'
-import { Categories } from '../../Pages/Categories/Categories'
+import { Categories, CategoryDetail, History, Home, LikedVideos, Playlist, VideoDetail, WatchLater } from '../../Pages'
+
 
 export const HeroSection = () => {
     return (
@@ -15,6 +15,7 @@ export const HeroSection = () => {
                     <Route path="/watch-later" component={WatchLater}/>
                     <Route path="/video-detail/:videoId" component={VideoDetail}/>
                     <Route path="/categories" component={Categories}/>
+                    <Route path="/category/:categoryId" component={CategoryDetail}/>
                 </Switch>
         </div>
     )

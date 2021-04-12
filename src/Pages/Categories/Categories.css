@@ -1,3 +1,9 @@
 .categoryContainer{
     margin: 0 0 0 1rem;
 }
+.category{
+    width: auto;
+    display: inline-block;
+    height: 5rem;
+    padding: 1rem;
+}

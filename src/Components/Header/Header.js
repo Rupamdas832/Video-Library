@@ -5,12 +5,12 @@ import {FaSearch} from "react-icons/fa"
 export const Header = () => {
     return (
         <div className="headerContainer">
-            <div class="navbar ecommerce">
-                <div class="navSearch ecommerce">
+            <div className="navbar ecommerce">
+                <div className="navSearch ecommerce">
                     <label><FaSearch/></label>
                     <input placeholder="Quick search anything"/>
                 </div>
-                <div class="navAction ecommerce">
+                <div className="navAction ecommerce">
                     <img src="https://cultivatedculture.com/wp-content/uploads/2019/12/LinkedIn-Profile-Picture-Example-Justin-Welsh.jpeg" className="avatar" alt="profile"/>
                 </div>
             </div>

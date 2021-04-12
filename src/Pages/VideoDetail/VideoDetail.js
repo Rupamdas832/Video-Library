@@ -4,7 +4,6 @@ import { AiTwotoneLike } from 'react-icons/ai'
 import { BsMusicNoteList } from 'react-icons/bs'
 import { MdWatchLater } from 'react-icons/md'
 import { useParams } from 'react-router-dom'
-import VideoList from "../../Server/VideoData"
 import "./VideoDetail.css"
 import { useStore } from '../../Store/storeContext'
 
@@ -12,9 +11,10 @@ export const VideoDetail = () =>{
 
     const {videoId} = useParams()
 
-    const {dispatch} = useStore()
+    const {state,dispatch} = useStore()
+    const {videos} = state
 
-    const selectedVideo = VideoList.find(video => video.id === videoId)
+    const selectedVideo = videos.find(video => video.id === videoId)
     const {id, title, channelName} = selectedVideo
 
     return (
