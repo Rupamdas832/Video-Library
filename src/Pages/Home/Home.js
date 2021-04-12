@@ -3,6 +3,7 @@ import { VideoItem } from '../../Components'
 import "./Home.css"
 import { Link } from 'react-router-dom'
 import { useStore } from '../../Store/storeContext'
+import ReactPlayer from 'react-player'
 
 export const Home = () => {
     
@@ -14,9 +15,10 @@ export const Home = () => {
             <h1>Home</h1>
             <div className="homeVideoList">
             {videos.map((video) => {
+                const {id} = video;
                 return (
-                    <Link className="routerLink" to={`/video-detail/${video.id}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
-                        <VideoItem video={video} key={video.id}/>
+                    <Link className="routerLink" to={`/video-detail/${id}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
+                        <VideoItem video={video}/>
                     </Link>
                 )
             })}
