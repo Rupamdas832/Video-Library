@@ -9,7 +9,13 @@ const StoreReducer = (state, action) => {
         case "ADD_NEW_PLAYLIST":
             return {...state, playlist: state.playlist.concat(action.payload)}
         case "ADD_VIDEO_TO_PLAYLIST":
-            return {...state, playlist: {...state.playlist, list: state.playlist.list.concat(action.payload)}}
+            return {...state, playlist: state.playlist.map(playlistItem => {
+                if(playlistItem.playlistId === action.payload.playlistId){
+                    console.log(playlistItem.playlistId)
+                    return state.playlist
+                }
+                return state.playlist
+            })}
         default: 
             return state
     }

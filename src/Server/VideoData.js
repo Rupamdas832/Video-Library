@@ -118,11 +118,11 @@ export const CategoryList = [
 
 export const Playlist = [
     {
-        id: uuid(),
+        playlistId: 11,
         title: "Unreal Engine 4"
     },
     {
-        id: uuid(),
+        playlistId: uuid(),
         title: "Blender"
     },
 ]

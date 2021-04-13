@@ -19,8 +19,13 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
         setPlaylistName("")
     }
 
-    const addVideoToPlaylist = () => {
-        dispatch({type: "ADD_VIDEO_TO_PLAYLIST", payload: videoId})
+    const addVideoToPlaylist = (playlistId) => {
+        const videoDetail = {
+            playlistId: playlistId,
+            videoId: videoId
+        }
+        dispatch({type: "ADD_VIDEO_TO_PLAYLIST", payload: videoDetail})
+        setIsModalOpen(!isModalOpen)
     }
     
     return (
@@ -28,8 +33,9 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
                 <div className="modalBox">
                     <h3>Playlist</h3>
                     <ul>
-                    {playlist.map((playlistItem, idx) => {
-                        return <li key={idx} onClick={() => addVideoToPlaylist()}>
+                    {playlist.map((playlistItem) => {
+                        const {playlistId} = playlistItem
+                        return <li key={playlistId} onClick={() => addVideoToPlaylist(playlistId)}>
                         {playlistItem.title}
                     </li>
                     })}
