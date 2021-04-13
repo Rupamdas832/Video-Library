@@ -15,9 +15,9 @@ export const Home = () => {
             <h1>Home</h1>
             <div className="homeVideoList">
             {videos.map((video) => {
-                const {id} = video;
+                const {videoId} = video;
                 return (
-                    <Link className="routerLink" to={`/video-detail/${id}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
+                    <Link className="routerLink" to={`/video-detail/${videoId}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
                         <VideoItem video={video}/>
                     </Link>
                 )

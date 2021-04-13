@@ -6,42 +6,27 @@ import { MdWatchLater } from 'react-icons/md'
 import { useParams } from 'react-router-dom'
 import "./VideoDetail.css"
 import { useStore } from '../../Store/storeContext'
+import { PlaylistModal } from '../../Components/PlaylistModal/PlaylistModal'
 
 export const VideoDetail = () =>{
 
     const [isModalOpen, setIsModalOpen] = useState(false)
 
-    const {videoId} = useParams()
+    const {videoIdFromParam} = useParams()
 
     const {state,dispatch} = useStore()
     const {videos} = state
 
-    const selectedVideo = videos.find(video => video.id === videoId)
-    const {id, title, channelName} = selectedVideo
+    const selectedVideo = videos.find(video => video.videoId === videoIdFromParam)
+    const {videoId, title, channelName} = selectedVideo
 
 
     return (
         <div className="videoDetailContainer">
-            {isModalOpen && <div className="modal" onClick={() =>setIsModalOpen(!isModalOpen)}>
-                <div className="modalBox">
-                    <h3>Playlist</h3>
-                    <ul>
-                        <li>
-                            Unreal engine 4
-                        </li>
-                        <li>
-                            Blender
-                        </li>
-                        <li>
-                            Substance Painter
-                        </li>
-
-                    </ul>
-                </div>
-            </div>}
+            {isModalOpen && <PlaylistModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}
             <div className="videoDetail">
                 <div className="videoDiv">
-                    <ReactPlayer url={`https://youtube.com/watch?v=${id}`} controls width="100%" height="100%"/>
+                    <ReactPlayer url={`https://youtube.com/watch?v=${videoId}`} controls width="100%" height="100%"/>
                 </div>
                 <div className="videoDesc">
                     <p>{title}</p>

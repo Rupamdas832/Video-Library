@@ -42,14 +42,4 @@
 .input input{
     width: 100%;
 }
-.modal{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.527);
-    position: fixed;
-    z-index: var(--index4);
-    width: 100vw;
-    height: 100vh;
-}
+

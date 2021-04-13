@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 import { VideoItem } from '../../Components/VideoItem/VideoItem'
 import { useStore } from '../../Store/storeContext'
 import "./CategoryDetail.css"
@@ -7,7 +8,7 @@ import "./CategoryDetail.css"
 export const CategoryDetail = () =>{
 
     const {categoryId} = useParams()
-    const {state} = useStore()
+    const {state, dispatch} = useStore()
     const {videos,categories} = state
     const {title} = categories.filter(cate => cate.categoryId === parseInt(categoryId))[0]
 
@@ -16,7 +17,9 @@ export const CategoryDetail = () =>{
         return videos.map(video => {
            
             if(video.categoryId === parseInt(categoryId)){
-                return <VideoItem video={video}/>
+                return <Link className="routerLink" to={`/video-detail/${video.videoId}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
+                        <VideoItem video={video}/>
+                    </Link>
             }
             return null
         })

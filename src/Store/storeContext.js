@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react"
 import StoreReducer from "./storeReducer"
-import {CategoryList, VideoList} from "../Server/VideoData"
+import {CategoryList, Playlist, VideoList} from "../Server/VideoData"
 
 const StoreContext = createContext()
 
@@ -14,7 +14,8 @@ export const StoreProvider = ({children}) => {
         categories: CategoryList,
         likedVideos: [],
         watchLaterVideos: [],
-        historyVideos: []
+        historyVideos: [],
+        playlist: Playlist,
     }
 
     const [state, dispatch] = useReducer(StoreReducer, initialState)

@@ -14,8 +14,8 @@ export const LikedVideos = () =>{
         <div className="likedVideoList">
         {likedVideos.map((video) => {
             return (
-                <Link className="routerLink" to={`/video-detail/${video.id}`}>
-                    <VideoItem video={video} key={video.id}/>
+                <Link className="routerLink" to={`/video-detail/${video.videoId}`}>
+                    <VideoItem video={video} key={video.videoId}/>
                 </Link>
             )
         })}

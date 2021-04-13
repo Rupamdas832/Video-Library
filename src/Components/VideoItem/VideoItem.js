@@ -2,7 +2,7 @@ import React from 'react'
 import "./VideoItem.css"
 
 export const VideoItem = ({video}) =>{
-    const {id, title, thumbnail} = video;
+    const {title, thumbnail} = video;
     return (
             <div className="ecommerceCard">
             <div className="cardImg">
