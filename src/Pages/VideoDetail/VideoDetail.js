@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactPlayer from "react-player"
 import { AiTwotoneLike } from 'react-icons/ai'
 import { BsMusicNoteList } from 'react-icons/bs'
@@ -9,6 +9,8 @@ import { useStore } from '../../Store/storeContext'
 
 export const VideoDetail = () =>{
 
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     const {videoId} = useParams()
 
     const {state,dispatch} = useStore()
@@ -17,8 +19,26 @@ export const VideoDetail = () =>{
     const selectedVideo = videos.find(video => video.id === videoId)
     const {id, title, channelName} = selectedVideo
 
+
     return (
         <div className="videoDetailContainer">
+            {isModalOpen && <div className="modal" onClick={() =>setIsModalOpen(!isModalOpen)}>
+                <div className="modalBox">
+                    <h3>Playlist</h3>
+                    <ul>
+                        <li>
+                            Unreal engine 4
+                        </li>
+                        <li>
+                            Blender
+                        </li>
+                        <li>
+                            Substance Painter
+                        </li>
+
+                    </ul>
+                </div>
+            </div>}
             <div className="videoDetail">
                 <div className="videoDiv">
                     <ReactPlayer url={`https://youtube.com/watch?v=${id}`} controls width="100%" height="100%"/>
@@ -35,7 +55,7 @@ export const VideoDetail = () =>{
                             <span className="tooltipText">Add to Watch Later</span>
                         </div>
                         <div className="tooltip">
-                            <button className="btn unstyled"><BsMusicNoteList/></button>
+                            <button className="btn unstyled" onClick={() =>setIsModalOpen(!isModalOpen)}><BsMusicNoteList/></button>
                             <span className="tooltipText">Add to Playlist</span>
                         </div>
                     </div>
