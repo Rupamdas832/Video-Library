@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { useStore } from '../../Store/storeContext'
 import "./PlaylistModal.css"
 
-export const PlaylistModal = ({isModalOpen, setIsModalOpen}) => {
+export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
 
     const [playlistName, setPlaylistName] = useState("")
 
@@ -19,8 +19,8 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen}) => {
         setPlaylistName("")
     }
 
-    const addToPlaylist = () => {
-        console.log("added")
+    const addVideoToPlaylist = () => {
+        dispatch({type: "ADD_VIDEO_TO_PLAYLIST", payload: videoId})
     }
     
     return (
@@ -29,7 +29,7 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen}) => {
                     <h3>Playlist</h3>
                     <ul>
                     {playlist.map((playlistItem, idx) => {
-                        return <li key={idx} onClick={() => addToPlaylist()}>
+                        return <li key={idx} onClick={() => addVideoToPlaylist()}>
                         {playlistItem.title}
                     </li>
                     })}

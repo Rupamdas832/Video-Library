@@ -23,14 +23,14 @@ export const VideoDetail = () =>{
 
     return (
         <div className="videoDetailContainer">
-            {isModalOpen && <PlaylistModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}
+            {isModalOpen && <PlaylistModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} videoId={videoId}/>}
             <div className="videoDetail">
                 <div className="videoDiv">
                     <ReactPlayer url={`https://youtube.com/watch?v=${videoId}`} controls width="100%" height="100%"/>
                 </div>
                 <div className="videoDesc">
                     <p>{title}</p>
-                    <div className="VideoLike">
+                    <div className="videoLike">
                         <div className="tooltip" onClick={() => dispatch({type: "ADD_TO_LIKED_VIDEO", payload: selectedVideo})}>
                             <button className="btn unstyled"><AiTwotoneLike/></button>
                             <span className="tooltipText">Add to Liked Videos</span>

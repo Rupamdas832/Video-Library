@@ -8,6 +8,8 @@ const StoreReducer = (state, action) => {
             return {...state, historyVideos: state.historyVideos.concat(action.payload)}
         case "ADD_NEW_PLAYLIST":
             return {...state, playlist: state.playlist.concat(action.payload)}
+        case "ADD_VIDEO_TO_PLAYLIST":
+            return {...state, playlist: {...state.playlist, list: state.playlist.list.concat(action.payload)}}
         default: 
             return state
     }
