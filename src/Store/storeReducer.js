@@ -12,9 +12,9 @@ const StoreReducer = (state, action) => {
             return {...state, playlist: state.playlist.map(playlistItem => {
                 if(playlistItem.playlistId === action.payload.playlistId){
                     console.log(playlistItem.playlistId)
-                    return state.playlist
+                    return {...playlistItem, list: playlistItem.list.concat(action.payload.videoId)}
                 }
-                return state.playlist
+                return playlistItem
             })}
         default: 
             return state

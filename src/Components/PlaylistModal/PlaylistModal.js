@@ -12,8 +12,9 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
 
     const addNewPlaylist = () => {
         const newPlaylist = {
-            id: uuid(),
-            title: playlistName
+            playlistId: uuid(),
+            title: playlistName,
+            list: []
         }
         dispatch({type: "ADD_NEW_PLAYLIST", payload: newPlaylist})
         setPlaylistName("")
@@ -26,6 +27,7 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
         }
         dispatch({type: "ADD_VIDEO_TO_PLAYLIST", payload: videoDetail})
         setIsModalOpen(!isModalOpen)
+        console.log(playlist)
     }
     
     return (

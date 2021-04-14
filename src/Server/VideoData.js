@@ -118,11 +118,13 @@ export const CategoryList = [
 
 export const Playlist = [
     {
-        playlistId: 11,
-        title: "Unreal Engine 4"
+        playlistId: uuid(),
+        title: "Unreal Engine 4",
+        list: []
     },
     {
         playlistId: uuid(),
-        title: "Blender"
+        title: "Blender",
+        list: []
     },
 ]
