@@ -9,7 +9,7 @@ export const useStore = () => {
 }
 
 export const StoreProvider = ({children}) => {
-    const initialState = {
+    const initialState = { 
         videos: VideoList,
         categories: CategoryList,
         likedVideos: [],
