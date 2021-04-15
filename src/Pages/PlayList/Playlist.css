@@ -1,0 +1,12 @@
+.playlistContainer{
+    margin: 0 0 0 1rem;
+}
+.playlist{
+    margin: 0 0 0 1rem;
+    border-top: 2px solid var(--darkGreen);
+}
+.playlistVideos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

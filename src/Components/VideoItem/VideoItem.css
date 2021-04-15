@@ -3,6 +3,14 @@
     justify-content: baseline;
     width: 18rem;
     margin: 1 0.2rem;
+    color: white;
+    border: 1px solid rgba(255, 219, 58, 0);
+    box-shadow: 1px 5px 15px rgba(255, 219, 58, 0);
+}
+.ecommerceCard:hover{
+    border: 1px solid var(--orange);
+    box-shadow: 2px 5px 15px rgba(255, 153, 58, 0.178);
+    outline: none;
 }
 .cardImg{
     width: 99%;
@@ -11,4 +19,8 @@
 .iframe.medium{
     height: 100%;
     width: 100%;
+}
+.avatar.small{
+    width: 30px;
+    height: 30px;
 }

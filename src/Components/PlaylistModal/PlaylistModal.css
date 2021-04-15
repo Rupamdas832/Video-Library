@@ -11,7 +11,13 @@
 }
 .modalBox{
     width: auto;
+    color: black;
 }
 .input{
     text-align: left;
+}
+.addPlaylist{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

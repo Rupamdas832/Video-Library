@@ -27,7 +27,6 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
         }
         dispatch({type: "ADD_VIDEO_TO_PLAYLIST", payload: videoDetail})
         setIsModalOpen(!isModalOpen)
-        console.log(playlist)
     }
     
     return (
@@ -42,9 +41,10 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
                     </li>
                     })}
                     </ul>
+                    <input className="input" onChange={(e) => setPlaylistName(e.target.value)}/>
                     <div className="addPlaylist">
-                        <input className="input" onChange={(e) => setPlaylistName(e.target.value)}/>
                         <button className="btn outline" onClick={() => addNewPlaylist()}>Add New</button>
+                        <button className="btn outline" onClick={() => setIsModalOpen(!isModalOpen)}>Cancel</button>
                     </div>
                 </div>
         </div>

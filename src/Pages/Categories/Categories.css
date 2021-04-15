@@ -7,3 +7,6 @@
     height: 5rem;
     padding: 1rem;
 }
+.btn.outline.categories{
+    color: var(--whitePale);
+}
