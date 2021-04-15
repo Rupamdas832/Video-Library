@@ -6,8 +6,12 @@
     width: 100%;
     height: 95vh;
 }
-
 .formCard{
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
     border: 2px solid var(--orange);
+    position: relative;
+}
+.redirectToSignup{
+    position: absolute;
+    bottom: 0;
 }

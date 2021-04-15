@@ -16,7 +16,7 @@ export const Home = () => {
             {videos.map((video) => {
                 const {videoId} = video;
                 return (
-                    <Link className="routerLink" to={`/video-detail/${videoId}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
+                    <Link className="routerLink" to={`/video-detail/${videoId}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})} key={videoId}>
                         <VideoItem video={video}/>
                     </Link>
                 )

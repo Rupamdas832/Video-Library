@@ -15,8 +15,8 @@
     color: black;
 }
 .sidebarNavItem:hover{
-    border-right: 5px solid var(--whitePale);
-    color: var(--whitePale);
+    border-right: 5px solid var(--blue);
+    color: var(--blue);
 }
 .sidebarNavItem p{
     margin-left: 1rem;
