@@ -7,8 +7,12 @@ import {FaHistory} from "react-icons/fa"
 import {MdWatchLater} from "react-icons/md"
 import {AiTwotoneLike} from "react-icons/ai"
 import {CgListTree} from "react-icons/cg"
+import { useAuth } from '../../Store/authContext'
 
-export const Sidebar = () =>{
+export const Sidebar = () => {
+
+    const {isUserLogin} = useAuth()
+
     return (
         <div className="sidebarContainer">
             <h1>GRAD</h1>
@@ -25,30 +29,30 @@ export const Sidebar = () =>{
                         <p>Categories</p>
                     </div>
                 </Link>
-                <Link to="/playlist" className="routerLink">
+                {isUserLogin && <Link to="/playlist" className="routerLink">
                     <div className="sidebarNavItem">
                         <BsMusicNoteList/>
                         <p>Playlist</p>
                     </div>
-                </Link>
-                <Link to="/watch-later" className="routerLink">
+                </Link>}
+                {isUserLogin && <Link to="/watch-later" className="routerLink">
                     <div className="sidebarNavItem">
                         <MdWatchLater/>
                         <p>Watch Later</p>
                     </div>
-                </Link>
-                <Link to="/liked-videos" className="routerLink">
+                </Link>}
+                {isUserLogin && <Link to="/liked-videos" className="routerLink">
                     <div className="sidebarNavItem">
                         <AiTwotoneLike/>
                         <p>Liked Videos</p>
                     </div>
-                </Link>
-                <Link to="/history" className="routerLink">
+                </Link>}
+                {isUserLogin && <Link to="/history" className="routerLink">
                     <div className="sidebarNavItem">
                         <FaHistory/>
                         <p>History</p>
                     </div>
-                </Link>
+                </Link>}
             </div>
         </div>
     )

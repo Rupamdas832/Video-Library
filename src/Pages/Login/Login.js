@@ -1,8 +1,10 @@
-import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Toast } from '../../Components'
 import mockServer from '../../Server/mockServer'
 import { useAuth } from '../../Store/authContext'
+import { useStore } from '../../Store/storeContext'
+import { useUser } from '../../Store/userContext'
 import "./Login.css"
 
 export const Login = () => {
@@ -15,19 +17,31 @@ export const Login = () => {
     const navigate = useNavigate()
     const { setIsUserLogin } = useAuth()
 
+    const {storeState, storeDispatch} = useStore()
+    const {isLoading} = storeState
+
+    const {userDispatch} = useUser()
+
     const loginWithCredentials = async () => {
+            storeDispatch({type: "IS_LOADING", payload: "loggingIn"})
         try {
             const response = await mockServer(email,password)
+            console.log(response.user)
             if(response.success){
                 setIsUserLogin(true)
+                userDispatch({type: "LOAD_USER", payload: response.user})
                 navigate(state?.from ? state.from : "/")
             }
         } catch (error) {
             setError(error.message)
         }
+        finally{
+            storeDispatch({type: "IS_LOADING", payload: "success"})
+        }
     }
     return (
         <div className="loginContainer">
+            {isLoading === "loggingIn" ? <Toast message="Logging In"/> : null}
             <div className="formCard">
                 <h1>Login</h1>
                 <div className="formInput">

@@ -3,12 +3,12 @@ import { v4 as uuid } from 'uuid';
 import { useStore } from '../../Store/storeContext'
 import "./PlaylistModal.css"
 
-export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
+export const PlaylistModal = ({setIsModalOpen, videoId}) => {
 
     const [playlistName, setPlaylistName] = useState("")
 
-    const {state, dispatch} = useStore()
-    const {playlist} = state;
+    const {storeState, storeDispatch} = useStore()
+    const {playlist} = storeState;
 
     const addNewPlaylist = () => {
         const newPlaylist = {
@@ -16,7 +16,7 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
             title: playlistName,
             list: []
         }
-        dispatch({type: "ADD_NEW_PLAYLIST", payload: newPlaylist})
+        storeDispatch({type: "ADD_NEW_PLAYLIST", payload: newPlaylist})
         setPlaylistName("")
     }
 
@@ -25,8 +25,8 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
             playlistId: playlistId,
             videoId: videoId
         }
-        dispatch({type: "ADD_VIDEO_TO_PLAYLIST", payload: videoDetail})
-        setIsModalOpen(!isModalOpen)
+        storeDispatch({type: "ADD_VIDEO_TO_PLAYLIST", payload: videoDetail})
+        setIsModalOpen(false)
     }
     
     return (
@@ -44,7 +44,7 @@ export const PlaylistModal = ({isModalOpen, setIsModalOpen, videoId}) => {
                     <input className="input" onChange={(e) => setPlaylistName(e.target.value)}/>
                     <div className="addPlaylist">
                         <button className="btn outline" onClick={() => addNewPlaylist()}>Add New</button>
-                        <button className="btn outline" onClick={() => setIsModalOpen(!isModalOpen)}>Cancel</button>
+                        <button className="btn outline" onClick={() => setIsModalOpen(false)}>Cancel</button>
                     </div>
                 </div>
         </div>

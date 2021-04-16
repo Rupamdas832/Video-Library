@@ -6,8 +6,8 @@ import "./WatchLater.css"
 
 export const WatchLater = () =>{
 
-    const {state} = useStore()
-    const {watchLaterVideos} = state;
+    const {storeState} = useStore()
+    const {watchLaterVideos} = storeState;
     return (
         <div className="watchLaterContainer">
             <h1>Watch Later</h1>

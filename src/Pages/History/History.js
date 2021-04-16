@@ -6,8 +6,8 @@ import "./History.css"
 
 export const History = () => {
 
-    const {state} = useStore()
-    const {historyVideos} = state
+    const {storeState} = useStore()
+    const {historyVideos} = storeState
     return (
         <div className="historyContainer">
         <h1>History</h1>

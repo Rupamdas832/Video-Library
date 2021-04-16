@@ -6,8 +6,8 @@ import "./LikedVideos.css"
 
 export const LikedVideos = () =>{
 
-    const {state} = useStore()
-    const {likedVideos} = state;
+    const {storeState} = useStore()
+    const {likedVideos} = storeState;
     return (
         <div className="likedVideoContainer">
         <h1>Liked Videos</h1>

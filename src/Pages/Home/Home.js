@@ -6,8 +6,8 @@ import { useStore } from '../../Store/storeContext'
 
 export const Home = () => {
     
-    const {state,dispatch} = useStore()
-    const {videos} = state
+    const {storeState , storeDispatch} = useStore()
+    const {videos} = storeState 
    
     return (
         <div className="homeContainer">
@@ -16,7 +16,7 @@ export const Home = () => {
             {videos.map((video) => {
                 const {videoId} = video;
                 return (
-                    <Link className="routerLink" to={`/video-detail/${videoId}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})} key={videoId}>
+                    <Link className="routerLink" to={`/video-detail/${videoId}`} onClick={() => storeDispatch({type: "ADD_TO_HISTORY", payload: video})} key={videoId}>
                         <VideoItem video={video}/>
                     </Link>
                 )

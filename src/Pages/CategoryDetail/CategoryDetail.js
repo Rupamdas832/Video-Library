@@ -8,8 +8,8 @@ import "./CategoryDetail.css"
 export const CategoryDetail = () =>{
 
     const {categoryId} = useParams()
-    const {state, dispatch} = useStore()
-    const {videos,categories} = state
+    const {storeState, storeDispatch} = useStore()
+    const {videos,categories} = storeState
     const {title} = categories.filter(cate => cate.categoryId === parseInt(categoryId))[0]
 
     const dispalyCategory= () => {
@@ -17,7 +17,7 @@ export const CategoryDetail = () =>{
         return videos.map(video => {
            
             if(video.categoryId === parseInt(categoryId)){
-                return <Link className="routerLink" to={`/video-detail/${video.videoId}`} onClick={() => dispatch({type: "ADD_TO_HISTORY", payload: video})}>
+                return <Link className="routerLink" to={`/video-detail/${video.videoId}`} onClick={() => storeDispatch({type: "ADD_TO_HISTORY", payload: video})}>
                         <VideoItem video={video}/>
                     </Link>
             }

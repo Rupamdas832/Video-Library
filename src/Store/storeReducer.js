@@ -1,5 +1,7 @@
 const StoreReducer = (state, action) => {
     switch (action.type) {
+        case "IS_LOADING":
+            return {...state, isLoading: action.payload}
         case "ADD_TO_LIKED_VIDEO":
             return {...state, likedVideos: state.likedVideos.concat(action.payload)}
         case "ADD_TO_WATCH_LATER":

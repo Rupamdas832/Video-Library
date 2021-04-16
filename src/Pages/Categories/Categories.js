@@ -4,8 +4,8 @@ import { useStore } from '../../Store/storeContext'
 import "./Categories.css"
 
 export const Categories = () => {
-    const {state} = useStore()
-    const {categories} = state
+    const {storeState} = useStore()
+    const {categories} = storeState
 
     return (
         <div className="categoryContainer">

@@ -5,8 +5,8 @@ import "./Playlist.css"
 
 export const Playlist = () => {
 
-    const {state} = useStore()
-    const {playlist, videos} = state;
+    const {storeState} = useStore()
+    const {playlist, videos} = storeState;
     return (
         <div className="playlistContainer">
         <h1>Playlist</h1>
