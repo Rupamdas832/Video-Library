@@ -24,7 +24,7 @@
     border: 2px solid rgba(255, 209, 2, 0.452);
 }
 .navAction.ecommerce{
-    width: 20%;
+    width: 15%;
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -1,25 +1,29 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import mockServer from '../../Server/mockServer'
+import { useAuth } from '../../Store/authContext'
 import "./Login.css"
 
 export const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState(null)
+
+    const {state} = useLocation()
+    const navigate = useNavigate()
+    const { setIsUserLogin } = useAuth()
 
     const loginWithCredentials = async () => {
-        console.log(email,password)
         try {
-            const response = await axios.post("https://Video-Library-Server.rupamdas.repl.co/", {
-                body: {
-                    email: email,
-                    password: password
-                }
-            })
-            console.log(response)
+            const response = await mockServer(email,password)
+            if(response.success){
+                setIsUserLogin(true)
+                navigate(state?.from ? state.from : "/")
+            }
         } catch (error) {
-            console.log(error.response.data)
+            setError(error.message)
         }
     }
     return (
@@ -35,6 +39,7 @@ export const Login = () => {
                     <input placeholder="Type your password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <button className="formBtn" onClick={loginWithCredentials}>Login</button>
+                {error && <p style={{color: "red"}}>{error}</p>}
                 <div className="redirectToSignup">
                     <p>Create a new account. <Link to="/signup">here</Link></p>
                 </div>

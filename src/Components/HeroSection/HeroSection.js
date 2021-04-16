@@ -1,25 +1,26 @@
 import React from 'react'
 import "./HeroSection.css"
-import {Route, Switch} from "react-router-dom"
+import {Route, Routes} from "react-router-dom"
 import { Categories, CategoryDetail, History, Home, LikedVideos, Login, Playlist, Profile, Signup, VideoDetail, WatchLater } from '../../Pages'
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
 
 export const HeroSection = () => {
     return (
         <div className="heroSectionContainer">
-                <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/history" component={History}/>
-                    <Route path="/playlist" component={Playlist}/>
-                    <Route path="/liked-videos" component={LikedVideos}/>
-                    <Route path="/watch-later" component={WatchLater}/>
-                    <Route path="/signup" component={Signup}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/profile" component={Profile}/>
-                    <Route path="/video-detail/:videoIdFromParam" component={VideoDetail}/>
-                    <Route path="/categories" component={Categories}/>
-                    <Route path="/category/:categoryId" component={CategoryDetail}/>
-                </Switch>
+                <Routes>
+                    <Route exact path="/" element={<Home/>}/>
+                    <Route path="/history" element={<History/>}/>
+                    <Route path="/liked-videos" element={<LikedVideos/>}/>
+                    <Route path="/watch-later" element={<WatchLater/>}/>
+                    <Route path="/signup" element={<Signup/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/video-detail/:videoIdFromParam" element={<VideoDetail/>}/>
+                    <Route path="/categories" element={<Categories/>}/>
+                    <Route path="/category/:categoryId" element={<CategoryDetail/>}/>
+                    <PrivateRoute path="/playlist" element={<Playlist/>}/>
+                </Routes>
         </div>
     )
 }
