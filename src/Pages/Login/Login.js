@@ -26,13 +26,14 @@ export const Login = () => {
     const loginWithCredentials = async () => {
             storeDispatch({type: "IS_LOADING", payload: "loggingIn"})
         try {
-            const response = await axios.post("https://Video-Library-Server.rupamdas.repl.co/auth",{
+            const response = await axios.post("https://Video-Library-Server.rupamdas.repl.co/login",{
                     "email": email,
                     "password": password
             })
             if(response.status === 200){
                 setIsUserLogin(true)
                 userDispatch({type: "LOAD_USER", payload: response.data.user})
+                localStorage.setItem("loginUser", true)
                 navigate(state?.from ? state.from : "/")
             }
         } catch (error) {
