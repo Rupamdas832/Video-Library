@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Toast } from '../../Components'
@@ -25,15 +26,18 @@ export const Login = () => {
     const loginWithCredentials = async () => {
             storeDispatch({type: "IS_LOADING", payload: "loggingIn"})
         try {
-            const response = await mockServer(email,password)
-            console.log(response.user)
-            if(response.success){
+            const response = await axios.post("https://Video-Library-Server.rupamdas.repl.co/auth",{
+                    "email": email,
+                    "password": password
+            })
+            if(response.status === 200){
                 setIsUserLogin(true)
-                userDispatch({type: "LOAD_USER", payload: response.user})
+                userDispatch({type: "LOAD_USER", payload: response.data.user})
                 navigate(state?.from ? state.from : "/")
             }
         } catch (error) {
-            setError(error.message)
+            console.log(error.response.data)
+            setError(error.response.data.message)
         }
         finally{
             storeDispatch({type: "IS_LOADING", payload: "success"})
@@ -41,7 +45,7 @@ export const Login = () => {
     }
     return (
         <div className="loginContainer">
-            {isLoading === "loggingIn" ? <Toast message="Logging In"/> : null}
+            {isLoading === "loggingIn" ? <Toast message="Authenticating Details..."/> : null}
             <div className="formCard">
                 <h1>Login</h1>
                 <div className="formInput">

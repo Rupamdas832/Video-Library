@@ -11,7 +11,6 @@ export const Header = () => {
 
     const {userState} = useUser()
     const {user} = userState
-    console.log(user)
 
     return (
         <div className="headerContainer">
