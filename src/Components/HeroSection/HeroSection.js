@@ -3,34 +3,8 @@ import "./HeroSection.css"
 import {Route, Routes} from "react-router-dom"
 import { Categories, CategoryDetail, History, Home, LikedVideos, Login, PageNotFound, Playlist, Profile, Signup, VideoDetail, WatchLater } from '../../Pages'
 import {PrivateRoute} from "../../Components"
-import { useAuth, useUser } from '../../Store'
-import axios from 'axios'
 
 export const HeroSection = () => {
-
-    const {authDispatch} = useAuth()
-
-    const {userDispatch} = useUser()
-
-    const fetchUser = async (userId) => {
-        try {
-            const response = await axios.post("https://Video-Library-Server.rupamdas.repl.co/user", {
-            "userId": userId
-            })
-            userDispatch({type: "LOAD_USER", payload: response.data.user})
-        } catch (error) {
-            console.log(error.response.data)
-        }
-        
-    }
-
-    useEffect(() => {
-        const loginStatus = JSON.parse(localStorage.getItem("loginUser"))
-        if(loginStatus?.isUserLogin){
-            authDispatch({type: "USER_LOGIN"})
-            fetchUser(loginStatus.userId)
-        }
-    },[])
 
     return (
         <div className="heroSectionContainer">

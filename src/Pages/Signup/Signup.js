@@ -32,9 +32,14 @@ export const Signup = () => {
                     "email": email,
                     "password": password
             })
+            const user = response.data.user
             if(response.status === 201){
                 authDispatch({type: "USER_LOGIN"})
-                userDispatch({type: "LOAD_USER", payload: response.data.user})
+                userDispatch({type: "LOAD_USER", payload: user})
+                localStorage.setItem("loginUser", JSON.stringify({
+                    isUserLogin: true,
+                    userId: user.userId
+                }))
                 navigate(state?.from ? state.from : "/")
             }
         } catch (error) {
