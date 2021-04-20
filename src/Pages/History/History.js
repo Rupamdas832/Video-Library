@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { VideoItem } from '../../Components'
-import { useStore } from '../../Store/storeContext'
+import { useStore } from '../../Store'
 import "./History.css"
 
 export const History = () => {

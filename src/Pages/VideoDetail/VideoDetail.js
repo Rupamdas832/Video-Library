@@ -6,8 +6,8 @@ import { MdWatchLater } from 'react-icons/md'
 import { useParams } from 'react-router-dom'
 import "./VideoDetail.css"
 import { useStore } from '../../Store/storeContext'
-import { useAuth } from '../../Store/authContext'
 import { LoginModal, PlaylistModal } from '../../Components'
+import { useAuth } from '../../Store'
 
 export const VideoDetail = () =>{
 
@@ -17,7 +17,8 @@ export const VideoDetail = () =>{
     const {storeState,storeDispatch} = useStore()
     const {videos} = storeState
 
-    const {isUserLogin} = useAuth()
+    const {authState} = useAuth()
+    const {isUserLogin} = authState;
 
     const {videoIdFromParam} = useParams()
     const selectedVideo = videos.find(video => video.videoId === videoIdFromParam)

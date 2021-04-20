@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid';
-import { useStore } from '../../Store/storeContext'
+import { useStore } from '../../Store';
+
 import "./PlaylistModal.css"
 
 export const PlaylistModal = ({setIsModalOpen, videoId}) => {

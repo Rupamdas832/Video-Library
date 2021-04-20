@@ -2,15 +2,21 @@ import React from 'react'
 import "./Header.css"
 import {FaSearch} from "react-icons/fa"
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../Store/authContext'
-import { useUser } from '../../Store/userContext'
+import { useAuth, useUser } from '../../Store'
+
 
 export const Header = () => {
 
-    const {isUserLogin, setIsUserLogin} = useAuth()
+    const {authState,authDispatch} = useAuth()
+    const {isUserLogin} = authState;
 
     const {userState} = useUser()
     const {user} = userState
+
+    const logoutUser = () => {
+        localStorage.removeItem("loginUser")
+        authDispatch({type: "USER_LOGOUT"})
+    }
 
     return (
         <div className="headerContainer">
@@ -25,7 +31,7 @@ export const Header = () => {
                     {isUserLogin && user ? <p style={{color: "white"}}>{user.name}</p> : null}
                     {!isUserLogin && <Link to="/signup"><button className="btn outline nav">Signup</button></Link>}
                     {!isUserLogin && <Link to="/login"><button className="btn outline nav">Login</button></Link>}
-                    {isUserLogin && <button className="btn outline nav" onClick={() => setIsUserLogin(false)}>Logout</button>}
+                    {isUserLogin && <button className="btn outline nav" onClick={() => logoutUser()}>Logout</button>}
                 </div>
             </div>
         </div>

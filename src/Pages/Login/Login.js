@@ -2,10 +2,8 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Toast } from '../../Components'
-import mockServer from '../../Server/mockServer'
-import { useAuth } from '../../Store/authContext'
-import { useStore } from '../../Store/storeContext'
-import { useUser } from '../../Store/userContext'
+import { useAuth, useStore, useUser } from '../../Store'
+
 import "./Login.css"
 
 export const Login = () => {
@@ -16,7 +14,8 @@ export const Login = () => {
 
     const {state} = useLocation()
     const navigate = useNavigate()
-    const { setIsUserLogin } = useAuth()
+    
+    const { authDispatch } = useAuth()
 
     const {storeState, storeDispatch} = useStore()
     const {isLoading} = storeState
@@ -30,14 +29,17 @@ export const Login = () => {
                     "email": email,
                     "password": password
             })
+            const user = response.data.user
             if(response.status === 200){
-                setIsUserLogin(true)
-                userDispatch({type: "LOAD_USER", payload: response.data.user})
-                localStorage.setItem("loginUser", true)
+                authDispatch({type: "USER_LOGIN"})
+                userDispatch({type: "LOAD_USER", payload: user})
+                localStorage.setItem("loginUser", JSON.stringify({
+                    isUserLogin: true,
+                    userId: user.userId
+                }))
                 navigate(state?.from ? state.from : "/")
             }
         } catch (error) {
-            console.log(error.response.data)
             setError(error.response.data.message)
         }
         finally{

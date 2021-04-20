@@ -2,7 +2,7 @@ import React from 'react'
 import { VideoItem } from '../../Components'
 import "./Home.css"
 import { Link } from 'react-router-dom'
-import { useStore } from '../../Store/storeContext'
+import { useStore } from '../../Store'
 
 export const Home = () => {
     

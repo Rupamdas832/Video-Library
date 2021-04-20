@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import { VideoItem } from '../../Components/VideoItem/VideoItem'
-import { useStore } from '../../Store/storeContext'
+import { VideoItem } from '../../Components'
+import { useStore } from '../../Store'
 import "./CategoryDetail.css"
 
 export const CategoryDetail = () =>{

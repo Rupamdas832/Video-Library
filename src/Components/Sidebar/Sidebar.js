@@ -7,11 +7,13 @@ import {FaHistory} from "react-icons/fa"
 import {MdWatchLater} from "react-icons/md"
 import {AiTwotoneLike} from "react-icons/ai"
 import {CgListTree} from "react-icons/cg"
-import { useAuth } from '../../Store/authContext'
+import { useAuth } from '../../Store'
+
 
 export const Sidebar = () => {
 
-    const {isUserLogin} = useAuth()
+    const {authState} = useAuth()
+    const {isUserLogin} = authState
 
     return (
         <div className="sidebarContainer">

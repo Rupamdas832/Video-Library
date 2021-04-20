@@ -1,10 +1,10 @@
 import axios from 'axios'
+import {v4 as uuid} from 'uuid'
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { Toast } from '../../Components'
-import { useAuth } from '../../Store/authContext'
-import { useStore } from '../../Store/storeContext'
-import { useUser } from '../../Store/userContext'
+import { useAuth, useStore, useUser } from '../../Store'
+
 import './Signup.css'
 
 export const Signup = () => {
@@ -17,7 +17,7 @@ export const Signup = () => {
     const navigate = useNavigate()
     const {state} = useLocation()
 
-    const { setIsUserLogin } = useAuth()
+    const { authDispatch } = useAuth()
     const {userDispatch} = useUser()
 
     const {storeState, storeDispatch} = useStore()
@@ -27,18 +27,17 @@ export const Signup = () => {
         storeDispatch({type: "IS_LOADING", payload: "signup"})
         try {
             const response = await axios.post("https://Video-Library-Server.rupamdas.repl.co/signup" ,{
+                    "userId": uuid(),
                     "name": name,
                     "email": email,
                     "password": password
             })
             if(response.status === 201){
-                setIsUserLogin(true)
-                console.log(response.data.user)
+                authDispatch({type: "USER_LOGIN"})
                 userDispatch({type: "LOAD_USER", payload: response.data.user})
                 navigate(state?.from ? state.from : "/")
             }
         } catch (error) {
-            console.log(error.response.data)
             setError(error.response.data.message)
         }
         finally{

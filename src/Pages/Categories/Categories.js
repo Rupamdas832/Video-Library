@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useStore } from '../../Store/storeContext'
+import { useStore } from '../../Store'
+
 import "./Categories.css"
 
 export const Categories = () => {
