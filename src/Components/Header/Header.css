@@ -18,10 +18,9 @@
 }
 .navSearch.ecommerce input{
     background-color: black;
-    
 }
-.avatar{
-    border: 2px solid rgba(255, 209, 2, 0.452);
+.btnFloat{
+    color: black;
 }
 .navAction.ecommerce{
     width: 15%;

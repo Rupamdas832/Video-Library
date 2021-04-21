@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {v4 as uuid} from 'uuid'
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { Toast } from '../../Components'
@@ -27,7 +26,6 @@ export const Signup = () => {
         storeDispatch({type: "IS_LOADING", payload: "signup"})
         try {
             const response = await axios.post("https://Video-Library-Server.rupamdas.repl.co/signup" ,{
-                    "userId": uuid(),
                     "name": name,
                     "email": email,
                     "password": password
@@ -38,7 +36,7 @@ export const Signup = () => {
                 userDispatch({type: "LOAD_USER", payload: user})
                 localStorage.setItem("loginUser", JSON.stringify({
                     isUserLogin: true,
-                    userId: user.userId
+                    userId: user._id
                 }))
                 navigate(state?.from ? state.from : "/")
             }
