@@ -65,7 +65,7 @@ export const Signup = () => {
                     <label>Password</label>
                     <input placeholder="Type your password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                 </div>
-                {error && <p style={{color: "red"}}>{error}</p>}
+                {error && <p className="errorMessage">{error}</p>}
                 <button className="formBtn" onClick={signUpUser}>Signup</button>
                 <div className="redirectToSignup">
                     <p>already have an account. <Link to="/login"> Login here</Link></p>

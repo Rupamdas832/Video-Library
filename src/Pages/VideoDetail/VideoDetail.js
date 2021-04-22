@@ -15,7 +15,7 @@ export const VideoDetail = () =>{
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
 
     const {storeState,storeDispatch} = useStore()
-    const {videos} = storeState
+    const {videos, likedVideos, watchLaterVideos} = storeState
 
     const {authState} = useAuth()
     const {isUserLogin} = authState;
@@ -31,6 +31,22 @@ export const VideoDetail = () =>{
         else return setIsLoginModalOpen(true)
     }
 
+    const addToLikedVideos = (video) => {
+        const videoAlreadyPresent = likedVideos.find(item => item.videoId === video.videoId)
+        if(videoAlreadyPresent){
+            return null;
+        }
+        else return storeDispatch({type: "ADD_TO_LIKED_VIDEO", payload: video}) 
+    }
+
+    const addToWatchLater = (video) => {
+        const videoAlreadyPresent = watchLaterVideos.find(item => item.videoId === video.videoId)
+        if(videoAlreadyPresent){
+            return null;
+        }
+        else return storeDispatch({type: "ADD_TO_WATCH_LATER", payload: video}) 
+    }
+
 
     return (
         <div className="videoDetailContainer">
@@ -43,11 +59,11 @@ export const VideoDetail = () =>{
                 <div className="videoDesc">
                     <p>{title}</p>
                     <div className="videoLike" onClick={() => loginToggler(selectedVideo)}>
-                        <div className="tooltip" onClick={() => isUserLogin ? storeDispatch({type: "ADD_TO_LIKED_VIDEO", payload: selectedVideo}): null}>
+                        <div className="tooltip" onClick={() => isUserLogin ? addToLikedVideos(selectedVideo) : null}>
                             <button className="btn unstyled"><AiTwotoneLike/></button>
                             <span className="tooltipText">Add to Liked Videos</span>
                         </div>
-                        <div className="tooltip" onClick={() => isUserLogin ? storeDispatch({type: "ADD_TO_WATCH_LATER", payload: selectedVideo}) : null}>
+                        <div className="tooltip" onClick={() => isUserLogin ? addToWatchLater(selectedVideo) : null}>
                             <button className="btn unstyled"><MdWatchLater/></button>
                             <span className="tooltipText">Add to Watch Later</span>
                         </div>

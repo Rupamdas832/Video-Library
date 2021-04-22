@@ -23,9 +23,6 @@ export const History = () => {
                         <div className="detailFlat history">
                             <p>{title}</p>
                             <p>{channelName}</p>
-                            <div className="btnsFlat history">
-                                <button className="btn outline history">Remove</button>
-                            </div>
                         </div>
                     </div>
                 </Link>

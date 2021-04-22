@@ -60,7 +60,7 @@ export const Login = () => {
                     <input placeholder="Type your password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <button className="formBtn" onClick={loginWithCredentials}>Login</button>
-                {error && <p style={{color: "red"}}>{error}</p>}
+                {error && <p className="errorMessage">{error}</p>}
                 <div className="redirectToSignup">
                     <p>new to GradTube! <Link to="/signup"> Signup here</Link></p>
                 </div>

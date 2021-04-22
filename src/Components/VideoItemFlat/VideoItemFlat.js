@@ -11,9 +11,7 @@ export const VideoItemFlat = ({video}) =>{
             <div className="detailFlat">
                 <p>{title}</p>
                 <p>{channelName}</p>
-                <div className="btnsFlat">
-                    <button className="btn outline">Remove</button>
-                </div>
+                
             </div>
         </div>
     )
