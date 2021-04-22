@@ -8,7 +8,25 @@ export const Profile = () => {
     const {user} = userState
     return (
         <div className="profileContainer">
-            <h3>Hii! {user.name}</h3>
+            <p>Hii {user.name.toUpperCase()}</p>
+            <div className="profileDetail">
+                <div className="input">
+                    <label>Name</label>
+                    <input placeholder="Enter name" value={user.name}/>
+                </div>
+                <div className="input">
+                    <label>Email</label>
+                    <input placeholder="Enter name" value={user.email}/>
+                </div>
+                <div className="input">
+                    <label>Password</label>
+                    <input placeholder="Enter name" type="password" value={user.password}/>
+                </div>
+                <div className="input">
+                    <label>Change Password</label>
+                    <input placeholder="Enter new password" type="password"/>
+                </div>
+            </div>
         </div>
     )
 }

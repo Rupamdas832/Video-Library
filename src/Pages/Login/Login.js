@@ -35,7 +35,7 @@ export const Login = () => {
                 userDispatch({type: "LOAD_USER", payload: user})
                 localStorage.setItem("loginUser", JSON.stringify({
                     isUserLogin: true,
-                    userId: user.userId
+                    userId: user._id
                 }))
                 navigate(state?.from ? state.from : "/")
             }

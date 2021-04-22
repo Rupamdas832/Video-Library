@@ -11,6 +11,10 @@
     border: 2px solid var(--orange);
     position: relative;
 }
+.formInput input{
+    background-color: black;
+    color: var(--whitePale);
+}
 .redirectToSignup{
     position: absolute;
     bottom: 0;
