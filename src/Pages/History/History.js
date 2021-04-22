@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { VideoItem } from '../../Components'
+import { VideoItemFlat } from '../../Components'
 import { useStore } from '../../Store'
 import "./History.css"
 
@@ -13,9 +13,21 @@ export const History = () => {
         <h1>History</h1>
         <div className="historyVideoList">
         {historyVideos.map((video) => {
+            const {videoId, thumbnail, channelName, title} = video
             return (
-                <Link className="routerLink" to={`/video-detail/${video.videoId}`}>
-                    <VideoItem video={video} key={video.videoId}/>
+                <Link className="routerLink" to={`/video-detail/${videoId}`} key={videoId}>
+                    <div className="flatCard history">
+                        <div className="imgFlat">
+                            <img src={thumbnail}/>
+                        </div>
+                        <div className="detailFlat history">
+                            <p>{title}</p>
+                            <p>{channelName}</p>
+                            <div className="btnsFlat history">
+                                <button className="btn outline history">Remove</button>
+                            </div>
+                        </div>
+                    </div>
                 </Link>
             )
         })}

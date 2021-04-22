@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { VideoItem } from '../../Components'
+import { VideoItemFlat } from '../../Components'
 import { useStore } from '../../Store';
 import "./LikedVideos.css"
 
@@ -15,7 +15,7 @@ export const LikedVideos = () =>{
         {likedVideos.map((video) => {
             return (
                 <Link className="routerLink" to={`/video-detail/${video.videoId}`}>
-                    <VideoItem video={video} key={video.videoId}/>
+                    <VideoItemFlat video={video} key={video.videoId}/>
                 </Link>
             )
         })}

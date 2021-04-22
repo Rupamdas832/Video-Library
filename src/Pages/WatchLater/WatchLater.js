@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { VideoItem } from '../../Components'
+import { VideoItem, VideoItemFlat } from '../../Components'
 import { useStore } from '../../Store/storeContext'
 import "./WatchLater.css"
 
@@ -15,7 +15,7 @@ export const WatchLater = () =>{
             {watchLaterVideos.map((video) => {
                 return (
                     <Link className="routerLink" to={`/video-detail/${video.videoId}`}>
-                        <VideoItem video={video} key={video.videoId}/>
+                        <VideoItemFlat video={video} key={video.videoId}/>
                     </Link>
                 )
             })}  

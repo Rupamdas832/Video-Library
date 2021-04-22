@@ -1,0 +1,15 @@
+.flatCard{
+    background: none;
+    width: 25rem;
+    font-size: 0.8rem;
+    color: var(--whitePale);
+    box-shadow: 1px 5px 15px rgba(255, 219, 58, 0);
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (max-width: 450px){
+    .flatCard{
+        width: 10rem;
+    }
+}

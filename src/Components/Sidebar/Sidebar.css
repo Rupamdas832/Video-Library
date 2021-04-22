@@ -22,3 +22,35 @@
     margin-left: 1rem;
     text-decoration: none;
 }
+
+@media only screen and (max-width: 450px){
+    .sidebarContainer{
+        height: auto;
+    }
+    .sidebarNavContainer{
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 0 0 0;
+        margin: 0 -1rem;
+    }
+    .sidebarContainer h1{
+        position: fixed;
+        top: -0.8rem;
+        color: var(--orange);
+    }
+    .sidebarNavItem{
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8rem;
+        margin-top: 0.5rem 0;
+        
+    }
+    .sidebarNavItem:hover{
+        border-bottom: none;
+        color: none;
+    }
+    .sidebarNavItem:focus{
+        border-bottom: none;
+        color: none;
+    }
+}

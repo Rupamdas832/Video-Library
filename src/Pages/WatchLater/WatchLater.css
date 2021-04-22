@@ -3,5 +3,15 @@
 }
 .watchLaterVideoList{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 450px){
+    .watchLaterContainer{
+        padding-bottom: 6rem;
+    }
+    .watchLaterVideoList{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }

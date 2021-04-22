@@ -1,7 +1,41 @@
 .historyContainer{
     padding: 0 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .historyVideoList{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.flatCard.history{
+    width: 40rem;
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 450px){
+    .historyContainer{
+        margin-left: -2rem;
+    }
+    .historyVideoList{
+        display: flex;
+        flex-direction: column;
+    }
+    .flatCard.history{
+        width: 20rem;
+        font-size: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 0.8rem;
+    }
+    .detailFlat.history{
+        margin-left: 1rem;
+    }
+    .btn.outline.history{
+        font-size: 0.6rem;
+    }
 }

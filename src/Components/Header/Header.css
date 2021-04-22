@@ -32,3 +32,19 @@
 .btn.outline.nav{
     color: var(--whitePale);
 }
+.dropdownContent{
+    background-color: rgb(54, 54, 54);
+}
+.dropdownContent li{
+    color: var(--whitePale);
+}
+
+@media only screen and (max-width: 450px){
+    .navSearch.ecommerce{
+        width: 200px;
+        margin-left: 7rem;
+    }
+    .dropdownContent{
+        margin-left: -7rem;
+    }
+}

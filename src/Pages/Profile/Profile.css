@@ -20,3 +20,12 @@
 .input label{
     color: black;
 }
+
+@media only screen and (max-width: 450px){
+    .profileDetail{
+        margin-left: -2rem;
+    }
+    .input{
+        width: 80vw;
+    }
+}

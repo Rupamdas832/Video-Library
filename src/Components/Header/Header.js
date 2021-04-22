@@ -23,7 +23,7 @@ export const Header = () => {
             <div className="navbar ecommerce">
                 <div className="navSearch ecommerce">
                     <label><FaSearch/></label>
-                    <input placeholder="Quick search anything"/>
+                    <input placeholder="Not working currently...WIP"/>
                 </div>
                 <div className="navAction ecommerce">
                     
