@@ -62,12 +62,6 @@ export const VideoDetail = () =>{
                     <p>{channelName}</p>
                 </div>
             </div>
-            <div className="videoNotes">
-                <h3>Take Notes</h3>
-                <div className="input"> 
-                    <input placeholder="Enter notes"/>
-                </div>
-            </div>
         </div>
     )
 }

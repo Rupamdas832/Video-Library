@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 import { Toast } from '../../Components'
 import { useAuth, useStore, useUser } from '../../Store'
 
@@ -66,6 +67,9 @@ export const Signup = () => {
                 </div>
                 {error && <p style={{color: "red"}}>{error}</p>}
                 <button className="formBtn" onClick={signUpUser}>Signup</button>
+                <div className="redirectToSignup">
+                    <p>already have an account. <Link to="/login"> Login here</Link></p>
+                </div>
             </div>
         </div> 
     )

@@ -62,7 +62,7 @@ export const Login = () => {
                 <button className="formBtn" onClick={loginWithCredentials}>Login</button>
                 {error && <p style={{color: "red"}}>{error}</p>}
                 <div className="redirectToSignup">
-                    <p>Create a new account. <Link to="/signup">here</Link></p>
+                    <p>new to GradTube! <Link to="/signup"> Signup here</Link></p>
                 </div>
             </div>
         </div>

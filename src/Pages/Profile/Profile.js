@@ -8,7 +8,7 @@ export const Profile = () => {
     const {user} = userState
     return (
         <div className="profileContainer">
-            <p>Hii {user.name.toUpperCase()}</p>
+            <p>Hii <span style={{color: "var(--orange)"}}>{user.name.toUpperCase()}</span></p>
             <div className="profileDetail">
                 <div className="input">
                     <label>Name</label>

@@ -31,12 +31,11 @@ export const Header = () => {
                                                 <button className="btnFloat">{user.name.charAt(0).toUpperCase()}</button>
                                                 <div className="dropdownContent">
                                                     <ul>
-                                                    <Link to="/profile"><li>Profile</li></Link>
+                                                    <Link to="/profile" className="routerLink"><li>Profile</li></Link>
                                                     <li onClick={() => logoutUser()}>Logout</li>
                                                     </ul>
                                                 </div>
                                             </div>: null}
-                    {!isUserLogin && <Link to="/signup"><button className="btn outline nav">Signup</button></Link>}
                     {!isUserLogin && <Link to="/login"><button className="btn outline nav">Login</button></Link>}
                    
                 </div>
