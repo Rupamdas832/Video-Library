@@ -18,7 +18,9 @@
 }
 .navSearch.ecommerce input{
     background-color: black;
+    color: var(--whitePale);
 }
+
 .btnFloat{
     color: black;
 }

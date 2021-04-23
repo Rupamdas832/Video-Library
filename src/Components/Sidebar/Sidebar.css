@@ -47,7 +47,7 @@
         
     }
     .sidebarNavItem:hover{
-        border-bottom: none;
+        border-right: none;
         color: none;
     }
     .sidebarNavItem:focus{
