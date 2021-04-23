@@ -1,5 +1,5 @@
 import React from 'react'
-import { VideoItem } from '../../Components'
+import { VideoItem, VideoItemFlat } from '../../Components'
 import {useStore} from '../../Store/storeContext'
 import "./Playlist.css"
 
@@ -16,7 +16,7 @@ export const Playlist = () => {
                     <div className="playlistVideos">
                         {playlistItem.list.map(item => {
                             const selectedVideo = videos.find(video => video.videoId === item)
-                            return <VideoItem video={selectedVideo}/>
+                            return <VideoItemFlat video={selectedVideo}/>
                         })}
                     </div>
                 </div>

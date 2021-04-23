@@ -36,7 +36,7 @@ export const Header = () => {
                                                     </ul>
                                                 </div>
                                             </div>: null}
-                    {!isUserLogin && <Link to="/login"><button className="btn outline nav">Login</button></Link>}
+                    {!isUserLogin && <Link to="/login"><button className="btn unstyled nav">Login</button></Link>}
                    
                 </div>
             </div>

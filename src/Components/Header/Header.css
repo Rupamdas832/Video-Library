@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: space-around;
 }
-.btn.outline.nav{
+.btn.unstyled.nav{
     color: var(--whitePale);
 }
 .dropdownContent{
@@ -40,9 +40,13 @@
 }
 
 @media only screen and (max-width: 450px){
+    .navbar.ecommerce{
+        justify-content: center;
+    }
     .navSearch.ecommerce{
         width: 200px;
-        margin-left: 7rem;
+        margin-left: 5rem;
+        font-size: 0.8rem;
     }
     .dropdownContent{
         margin-left: -7rem;

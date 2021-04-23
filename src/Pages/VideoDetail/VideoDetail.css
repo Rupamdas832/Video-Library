@@ -44,3 +44,19 @@
     width: 100%;
 }
 
+@media only screen and (max-width: 450px){
+    .videoDetailContainer{
+        padding: 2rem 0 0 0;
+    }
+    .videoDetail{
+        width: 95%;
+        height: 50vh;
+    }
+    .videoDiv{
+        height: 100%;
+    }
+    .avatar{
+        width: 35px;
+        height: 35px;
+    }
+}

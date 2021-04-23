@@ -28,15 +28,16 @@
         height: auto;
     }
     .sidebarNavContainer{
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
         padding: 1rem 0 0 0;
         margin: 0 -1rem;
     }
     .sidebarContainer h1{
         position: fixed;
-        top: -0.8rem;
+        top: -0.2rem;
         color: var(--orange);
+        font-size: 1.5rem;
     }
     .sidebarNavItem{
         display: flex;

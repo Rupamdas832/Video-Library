@@ -10,6 +10,9 @@
     .watchLaterContainer{
         padding-bottom: 6rem;
     }
+    .watchLaterContainer h1{
+        text-align: center;
+    }
     .watchLaterVideoList{
         display: grid;
         grid-template-columns: 1fr 1fr;

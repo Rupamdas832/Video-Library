@@ -7,6 +7,12 @@
 }
 
 @media only screen and (max-width: 450px){
+    .likedVideoContainer{
+        padding-bottom: 7rem;
+    }
+    .likedVideoContainer h1{
+        text-align: center;
+    }
     .likedVideoList{
         display: flex;
         flex-direction: column;

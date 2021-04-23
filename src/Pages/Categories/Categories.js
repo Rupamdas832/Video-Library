@@ -11,12 +11,15 @@ export const Categories = () => {
     return (
         <div className="categoryContainer">
         <h1>Categories</h1>
+        <div className="categories">
             {categories.map( category=> {
                 const {categoryId,title} = category
                 return <div className="category" key={categoryId}>
                         <Link to={`/category/${categoryId}`}><button className="btn outline categories">{title}</button></Link>
                     </div>
             })}
+        </div>
+            
         </div>
     )
 }

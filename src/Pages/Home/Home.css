@@ -7,6 +7,9 @@
 }
 
 @media only screen and (max-width: 450px){
+    .homeContainer{
+        padding-bottom: 6rem;
+    }
     .homeVideoList{
         display: flex;
         flex-direction: column;
