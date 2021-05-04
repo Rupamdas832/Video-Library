@@ -5,10 +5,9 @@ import { useAuth } from '../../Store'
 
 export const PrivateRoute = ({path, ...props}) => {
 
-    const {authState} = useAuth()
-    const {isUserLogin} = authState
+    const LoginStatus = JSON.parse(localStorage.getItem("loginUser"))
     
-    return (isUserLogin ? (
+    return (LoginStatus.isUserLogin ? (
         <Route {...props}/>
     ) : (
         <Navigate replace state={{from: path}} to="/login"/>
