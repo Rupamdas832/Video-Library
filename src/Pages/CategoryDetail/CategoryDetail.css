@@ -1,0 +1,8 @@
+.categoryContainer{
+    margin: 0 0 0 1rem;
+}
+.categoryVideoList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

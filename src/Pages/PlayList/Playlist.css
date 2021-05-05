@@ -1,0 +1,28 @@
+.playlistContainer{
+    margin: 0 0 0 1rem;
+}
+.playlist{
+    margin: 0 0 0 1rem;
+    border-top: 2px solid var(--darkGreen);
+}
+.playlistVideos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 450px){
+    .playlistContainer{
+        padding-bottom: 6rem;
+    }
+    .playlistContainer h1{
+        text-align: center;
+    }
+    .playlist{
+        margin: 0;
+    }
+    .playlistVideos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

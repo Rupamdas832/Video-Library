@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { StoreProvider } from './Store/storeContext';
+import { AuthProvider } from './Store/authContext';
+import { UserProvider } from './Store/userContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <StoreProvider>
+        <UserProvider>
+          <App />
+        </UserProvider> 
+      </StoreProvider> 
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

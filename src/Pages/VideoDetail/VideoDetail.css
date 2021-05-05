@@ -1,0 +1,61 @@
+.videoDetailContainer{
+    padding: 2rem 0 0 1rem;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+.videoDetail{
+    width: 70%;
+    height: 60vh;
+}
+.videoDiv{
+    width: 100%;
+    height: 70vh;
+}
+
+.videoDesc{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(180, 180, 180, 0.801);
+}
+.videoLike{
+    display: flex;
+    flex-direction: row;
+}
+.videoChannelName{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.videoChannelName p{
+    margin-left: 1rem;
+}
+.input{
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+}
+.input input{
+    width: 100%;
+}
+
+@media only screen and (max-width: 450px){
+    .videoDetailContainer{
+        padding: 2rem 0 0 0;
+    }
+    .videoDetail{
+        width: 95%;
+        height: 50vh;
+    }
+    .videoDiv{
+        height: 100%;
+    }
+    .avatar{
+        width: 35px;
+        height: 35px;
+    }
+}

@@ -1,0 +1,24 @@
+.likedVideoContainer{
+    padding: 0 0 0 1rem;
+}
+.likedVideoList{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 450px){
+    .likedVideoContainer{
+        padding-bottom: 7rem;
+    }
+    .likedVideoContainer h1{
+        text-align: center;
+    }
+    .likedVideoList{
+        display: flex;
+        flex-direction: column;
+    }
+    .likedVideoList{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

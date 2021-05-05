@@ -1,0 +1,13 @@
+.signupContainer{
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 95vh;
+}
+
+@media only screen and (max-width: 450px){
+    .signupContainer{
+        padding-bottom: 3rem;
+    }
+}

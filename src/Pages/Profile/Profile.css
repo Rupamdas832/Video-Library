@@ -1,0 +1,31 @@
+.profileContainer{
+    margin: 5rem 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input{
+    width: 40vw;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    box-shadow: 0 3px 5px rgba(117, 117, 117, 0);
+    
+}
+.input input{
+    background-color: black;
+    color: var(--whitePale);
+    border-right: 1px solid var(--orange);
+}
+.input label{
+    color: black;
+}
+
+@media only screen and (max-width: 450px){
+    .profileDetail{
+        margin-left: -2rem;
+    }
+    .input{
+        width: 80vw;
+    }
+}
