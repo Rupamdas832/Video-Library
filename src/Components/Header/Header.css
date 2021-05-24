@@ -1,57 +1,58 @@
-.headerContainer{
-    width: 100%;
-    position: fixed;
-    z-index: var(--index2);
+.headerContainer {
+  width: 100%;
+  position: fixed;
+  z-index: var(--index2);
 }
-.navbar.ecommerce{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 7vh;
-    background-color: black;
-    box-shadow: 1px 5px 10px rgba(255, 216, 45, 0.185);
+.navbar.ecommerce {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 7vh;
+  background-color: black;
+  box-shadow: 1px 5px 10px rgba(255, 216, 45, 0.185);
 }
-.navSearch.ecommerce{
-    width: 400px;
-    border: 1px solid rgba(255, 209, 2, 0.452);
-    color: rgba(255, 209, 2, 0.452);
+.navSearch.ecommerce {
+  width: 400px;
+  border: 1px solid rgba(255, 209, 2, 0.452);
+  color: rgba(255, 209, 2, 0.452);
 }
-.navSearch.ecommerce input{
-    background-color: black;
-    color: var(--whitePale);
-}
-
-.btnFloat{
-    color: black;
-}
-.navAction.ecommerce{
-    width: 15%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-.btn.unstyled.nav{
-    color: var(--whitePale);
-}
-.dropdownContent{
-    background-color: rgb(54, 54, 54);
-}
-.dropdownContent li{
-    color: var(--whitePale);
+.navSearch.ecommerce input {
+  background-color: black;
+  color: var(--whitePale);
 }
 
-@media only screen and (max-width: 450px){
-    .navbar.ecommerce{
-        justify-content: center;
-        border-top: 1px solid none;
-    }
-    .navSearch.ecommerce{
-        width: 200px;
-        margin-left: 5rem;
-        font-size: 0.8rem;
-    }
-    .dropdownContent{
-        margin-left: -7rem;
-    }
+.btnFloat {
+  color: black;
+}
+.navAction.ecommerce {
+  width: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.btn.unstyled.nav {
+  color: var(--whitePale);
+}
+.dropdownContent {
+  background-color: rgb(54, 54, 54);
+  border-radius: 0.5rem;
+}
+.dropdownContent li {
+  color: var(--whitePale);
+}
+
+@media only screen and (max-width: 450px) {
+  .navbar.ecommerce {
+    justify-content: center;
+    border-top: 1px solid none;
+  }
+  .navSearch.ecommerce {
+    width: 200px;
+    margin-left: 5rem;
+    font-size: 0.8rem;
+  }
+  .dropdownContent {
+    margin-left: -7rem;
+  }
 }

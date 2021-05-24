@@ -1,5 +1,11 @@
-.toast{
-    position: fixed;
-    right: 1rem;
-    top: 5rem;
+.toast {
+  position: fixed;
+  right: 1rem;
+  top: 5rem;
+}
+
+@media only screen and (max-width: 450px) {
+  .toast {
+    right: 2rem;
+  }
 }

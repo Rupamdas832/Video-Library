@@ -1,3 +1,2 @@
-export {useStore} from "./storeContext"
-export {useAuth} from "./authContext"
-export {useUser} from "./userContext"
+export { useStore } from "./storeContext";
+export { useUser } from "./userContext";

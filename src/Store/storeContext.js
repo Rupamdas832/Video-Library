@@ -1,25 +1,45 @@
-import React, { createContext, useContext, useReducer } from "react"
-import StoreReducer from "./storeReducer"
-import {CategoryList, Playlist, VideoList} from "../Server/VideoData"
+import React, { createContext, useContext, useReducer } from "react";
+import StoreReducer from "./storeReducer";
+import { CategoryList, Playlist } from "../Server/VideoData";
 
-const StoreContext = createContext()
+const StoreContext = createContext();
 
 export const useStore = () => {
-    return useContext(StoreContext)
+  return useContext(StoreContext);
+};
+
+const loginStatus = JSON.parse(localStorage.getItem("VideoLoginUser"));
+
+let initialState;
+
+if (loginStatus?.isUserLogin) {
+  initialState = {
+    videos: [],
+    categories: CategoryList,
+    likedVideos: loginStatus.likedVideos,
+    watchLaterVideos: loginStatus.watchLaterVideos,
+    historyVideos: loginStatus.historyVideos,
+    playlist: Playlist,
+    isLoading: null,
+  };
+} else {
+  initialState = {
+    videos: [],
+    categories: CategoryList,
+    likedVideos: [],
+    watchLaterVideos: [],
+    historyVideos: [],
+    playlist: Playlist,
+    isLoading: null,
+  };
 }
 
-export const StoreProvider = ({children}) => {
-    const initialState = { 
-        videos: VideoList,
-        categories: CategoryList,
-        likedVideos: [],
-        watchLaterVideos: [],
-        historyVideos: [],
-        playlist: Playlist,
-        isLoading: null
-    }
+export const StoreProvider = ({ children }) => {
+  const [storeState, storeDispatch] = useReducer(StoreReducer, initialState);
 
-    const [storeState, storeDispatch] = useReducer(StoreReducer, initialState)
-
-    return <StoreContext.Provider value={{storeState, storeDispatch}}>{children}</StoreContext.Provider>
-}
+  return (
+    <StoreContext.Provider value={{ storeState, storeDispatch }}>
+      {children}
+    </StoreContext.Provider>
+  );
+};
