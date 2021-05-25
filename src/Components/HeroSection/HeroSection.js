@@ -25,6 +25,21 @@ import axios from "axios";
 export const HeroSection = () => {
   const { storeState, storeDispatch } = useStore();
   const { isLoading } = storeState;
+
+  const fetchCategories = async () => {
+    try {
+      const {
+        data: { categories },
+        status,
+      } = await axios.get(`${URL}/categories`);
+      if (status === 200) {
+        storeDispatch({ type: "LOAD_CATEGORIES", payload: categories });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const fetchVideos = async () => {
     storeDispatch({ type: "IS_LOADING", payload: "fetchingVideos" });
     try {
@@ -34,6 +49,11 @@ export const HeroSection = () => {
       } = await axios.get(`${URL}/videos`);
       if (status === 200) {
         storeDispatch({ type: "LOAD_VIDEOS", payload: videos });
+        fetchCategories();
+        const loginStatus = JSON.parse(localStorage.getItem("VideoLoginUser"));
+        if (loginStatus.isUserLogin) {
+          storeDispatch({ type: "LOAD_VIDEO_LIBRARY", payload: loginStatus });
+        }
       }
     } catch (error) {
       console.log(error);
@@ -59,12 +79,9 @@ export const HeroSection = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <PrivateRoute path="/profile" element={<Profile />} />
-          <Route
-            path="/video-detail/:videoIdFromParam"
-            element={<VideoDetail />}
-          />
+          <Route path="/video-detail" element={<VideoDetail />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/category/:categoryId" element={<CategoryDetail />} />
+          <Route path="/category" element={<CategoryDetail />} />
           <PrivateRoute path="/playlist" element={<Playlist />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>

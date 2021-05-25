@@ -3,23 +3,62 @@ const StoreReducer = (state, action) => {
     case "IS_LOADING":
       return { ...state, isLoading: action.payload };
     case "LOAD_VIDEOS":
-      return { ...state, videos: action.payload };
+      return {
+        ...state,
+        videos: action.payload.map((video) => ({
+          ...video,
+          isLiked: false,
+          isWatchLater: false,
+        })),
+      };
+    case "LOAD_CATEGORIES":
+      return {
+        ...state,
+        categories: action.payload,
+      };
     case "LOAD_VIDEO_LIBRARY":
       return {
         ...state,
         likedVideos: action.payload.likedVideos,
         watchLaterVideos: action.payload.watchLaterVideos,
         historyVideos: action.payload.historyVideos,
+        videos: state.videos.map((video) => {
+          const foundLikedVideo = action.payload.likedVideos.find(
+            (item) => item._id === video._id
+          );
+          const foundWatchLaterVideo = action.payload.watchLaterVideos.find(
+            (item) => item._id === video._id
+          );
+          if (foundLikedVideo) {
+            video.isLiked = true;
+          }
+          if (foundWatchLaterVideo) {
+            video.isWatchLater = true;
+          }
+          return video;
+        }),
       };
     case "ADD_TO_LIKED_VIDEO":
       return {
         ...state,
         likedVideos: state.likedVideos.concat(action.payload),
+        videos: state.videos.map((video) => {
+          if (video._id === action.payload._id) {
+            video.isLiked = true;
+          }
+          return video;
+        }),
       };
     case "ADD_TO_WATCH_LATER":
       return {
         ...state,
         watchLaterVideos: state.watchLaterVideos.concat(action.payload),
+        videos: state.videos.map((video) => {
+          if (video._id === action.payload._id) {
+            video.isWatchLater = true;
+          }
+          return video;
+        }),
       };
     case "ADD_TO_HISTORY":
       return {
@@ -42,6 +81,32 @@ const StoreReducer = (state, action) => {
             };
           }
           return playlistItem;
+        }),
+      };
+    case "REMOVE_FROM_LIKED_VIDEO":
+      return {
+        ...state,
+        likedVideos: state.likedVideos.filter(
+          (item) => item._id !== action.payload._id
+        ),
+        videos: state.videos.map((video) => {
+          if (video._id === action.payload._id) {
+            video.isLiked = false;
+          }
+          return video;
+        }),
+      };
+    case "REMOVE_FROM_WATCH_LATER":
+      return {
+        ...state,
+        watchLaterVideos: state.watchLaterVideos.filter(
+          (item) => item._id !== action.payload._id
+        ),
+        videos: state.videos.map((video) => {
+          if (video._id === action.payload._id) {
+            video.isWatchLater = false;
+          }
+          return video;
         }),
       };
     default:

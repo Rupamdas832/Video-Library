@@ -1,23 +1,33 @@
-.modal{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.651);
-    position: fixed;
-    z-index: var(--index4);
-    width: 100vw;
-    height: 100vh;
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.651);
+  position: fixed;
+  z-index: var(--index4);
+  width: 100vw;
+  height: 100vh;
 }
-.modalBox{
-    width: auto;
-    color: black;
+.modalBox {
+  width: auto;
+  color: black;
 }
-.input{
-    text-align: left;
+.modalBox ul {
+  margin: 0.5rem 0;
 }
-.addPlaylist{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.input {
+  text-align: left;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+.playlistBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+.modalPlayList {
+  margin: 0 0 0.5rem 0;
 }

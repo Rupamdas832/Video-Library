@@ -12,7 +12,33 @@ export const addToLikedVideos = async (
   );
 
   if (videoAlreadyPresent) {
-    return null;
+    storeDispatch({ type: "IS_LOADING", payload: "removeLikeVideo" });
+    try {
+      const { status } = await axios.delete(
+        `${URL}/video-library/${user._id}`,
+        {
+          data: {
+            _id: selectedVideo._id,
+            section: "likedVideos",
+          },
+        }
+      );
+      if (status === 202) {
+        const newVideo = {
+          _id: selectedVideo._id,
+        };
+        storeDispatch({ type: "REMOVE_FROM_LIKED_VIDEO", payload: newVideo });
+        const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
+        storage.likedVideos = storage.likedVideos.filter(
+          (item) => item._id !== selectedVideo._id
+        );
+        localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      storeDispatch({ type: "IS_LOADING", payload: "success" });
+    }
   } else {
     storeDispatch({ type: "IS_LOADING", payload: "likeVideo" });
     try {
@@ -47,7 +73,33 @@ export const addToWatchLater = async (
     (item) => item._id === selectedVideo._id
   );
   if (videoAlreadyPresent) {
-    return null;
+    storeDispatch({ type: "IS_LOADING", payload: "removeWatchLater" });
+    try {
+      const { status } = await axios.delete(
+        `${URL}/video-library/${user._id}`,
+        {
+          data: {
+            _id: selectedVideo._id,
+            section: "watchLaterVideos",
+          },
+        }
+      );
+      if (status === 202) {
+        const newVideo = {
+          _id: selectedVideo._id,
+        };
+        storeDispatch({ type: "REMOVE_FROM_WATCH_LATER", payload: newVideo });
+        const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
+        storage.watchLaterVideos = storage.watchLaterVideos.filter(
+          (item) => item._id !== selectedVideo._id
+        );
+        localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      storeDispatch({ type: "IS_LOADING", payload: "success" });
+    }
   } else {
     storeDispatch({ type: "IS_LOADING", payload: "watchLater" });
     try {

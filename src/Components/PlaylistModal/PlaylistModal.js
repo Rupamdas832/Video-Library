@@ -16,29 +16,33 @@ export const PlaylistModal = ({ setIsModalOpen, video_id }) => {
   const { user } = userState;
 
   const addNewPlaylist = async () => {
-    storeDispatch({ type: "IS_LOADING", payload: "playlist" });
-    try {
-      const {
-        data: { playlist },
-        status,
-      } = await axios.post(`${URL}/video-library/${user._id}`, {
-        _id: video_id,
-        section: "playlistVideos",
-        title: playlistName,
-      });
-      if (status === 201) {
-        storeDispatch({ type: "ADD_NEW_PLAYLIST", payload: playlist });
-        const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
-        storage.playlist = playlist;
-        localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
+    if (playlistName === "") {
+      return alert("Playlist name can't be empty");
+    } else {
+      storeDispatch({ type: "IS_LOADING", payload: "playlist" });
+      try {
+        const {
+          data: { playlist },
+          status,
+        } = await axios.post(`${URL}/video-library/${user._id}`, {
+          _id: video_id,
+          section: "playlistVideos",
+          title: playlistName,
+        });
+        if (status === 201) {
+          storeDispatch({ type: "ADD_NEW_PLAYLIST", payload: playlist });
+          const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
+          storage.playlist = playlist;
+          localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        storeDispatch({ type: "IS_LOADING", payload: "success" });
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      storeDispatch({ type: "IS_LOADING", payload: "success" });
+      setPlaylistName("");
+      setIsModalOpen(false);
     }
-    setPlaylistName("");
-    setIsModalOpen(false);
   };
 
   const addVideoToPlaylist = async (_id) => {
@@ -80,7 +84,11 @@ export const PlaylistModal = ({ setIsModalOpen, video_id }) => {
           {playlist.map((playlistItem) => {
             const { _id } = playlistItem;
             return (
-              <li key={_id} onClick={() => addVideoToPlaylist(_id)}>
+              <li
+                key={_id}
+                onClick={() => addVideoToPlaylist(_id)}
+                className="modalPlayList"
+              >
                 {playlistItem.title}
               </li>
             );
@@ -89,8 +97,9 @@ export const PlaylistModal = ({ setIsModalOpen, video_id }) => {
         <input
           className="input"
           onChange={(e) => setPlaylistName(e.target.value)}
+          placeholder="Add new playlist name"
         />
-        <div className="addPlaylist">
+        <div className="playlistBtns">
           <button className="btn outline" onClick={() => addNewPlaylist()}>
             Add New
           </button>

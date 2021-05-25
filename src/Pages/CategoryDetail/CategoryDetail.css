@@ -1,8 +1,17 @@
-.categoryContainer{
-    margin: 0 0 0 1rem;
+.categoryContainer {
+  margin: 0 0 0 1rem;
 }
-.categoryVideoList{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.categoryVideoList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 450px) {
+  .categoryContainer {
+    margin: 2rem 0 0 1rem;
+  }
+  .categoryContainer h1 {
+    font-size: 1.5rem;
+  }
 }

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { AiTwotoneLike } from "react-icons/ai";
-import { BsMusicNoteList } from "react-icons/bs";
-import { MdWatchLater } from "react-icons/md";
-import { useParams } from "react-router-dom";
+import { AiTwotoneLike, AiOutlineLike } from "react-icons/ai";
+import { BsMusicNoteList, BsStopwatchFill, BsStopwatch } from "react-icons/bs";
+import { useLocation } from "react-router-dom";
 import "./VideoDetail.css";
 import { LoginModal, PlaylistModal, Toast } from "../../Components";
 import { useStore, useUser } from "../../Store";
@@ -18,16 +17,15 @@ export const VideoDetail = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   const { storeState, storeDispatch } = useStore();
-  const { videos, likedVideos, watchLaterVideos, isLoading } = storeState;
+  const { likedVideos, watchLaterVideos, isLoading } = storeState;
 
   const { userState } = useUser();
   const { isUserLogin, user } = userState;
 
-  const { videoIdFromParam } = useParams();
-  const selectedVideo = videos.find(
-    (video) => video.videoId === videoIdFromParam
-  );
-  const { videoId, title, channelName } = selectedVideo;
+  const { state } = useLocation();
+  const selectedVideo = state.video;
+
+  const { videoId, title, channelName, isLiked, isWatchLater } = selectedVideo;
 
   const loginToggler = () => {
     if (isUserLogin) {
@@ -56,8 +54,14 @@ export const VideoDetail = () => {
       {isLoading === "likeVideo" ? (
         <Toast message="Adding to liked videos..." />
       ) : null}
+      {isLoading === "removeLikeVideo" ? (
+        <Toast message="Removing from liked videos..." />
+      ) : null}
       {isLoading === "watchLater" ? (
         <Toast message="Adding to watch later..." />
+      ) : null}
+      {isLoading === "removeWatchLater" ? (
+        <Toast message="Removing from watch later..." />
       ) : null}
       <div className="videoDetail">
         <div className="videoDiv">
@@ -88,8 +92,12 @@ export const VideoDetail = () => {
                   : null
               }
             >
-              <button className="btn unstyled">
-                <AiTwotoneLike />
+              <button className="btn unstyled icon">
+                {isLiked === true ? (
+                  <AiTwotoneLike className="iconClicked" />
+                ) : (
+                  <AiOutlineLike />
+                )}
               </button>
               <span className="tooltipText">Add to Liked Videos</span>
             </div>
@@ -106,14 +114,18 @@ export const VideoDetail = () => {
                   : null
               }
             >
-              <button className="btn unstyled">
-                <MdWatchLater />
+              <button className="btn unstyled icon">
+                {isWatchLater === true ? (
+                  <BsStopwatchFill className="iconClicked" />
+                ) : (
+                  <BsStopwatch />
+                )}
               </button>
               <span className="tooltipText">Add to Watch Later</span>
             </div>
             <div className="tooltip">
               <button
-                className="btn unstyled"
+                className="btn unstyled icon"
                 onClick={() =>
                   isUserLogin ? setIsModalOpen(!isModalOpen) : null
                 }

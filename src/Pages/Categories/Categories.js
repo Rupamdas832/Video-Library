@@ -17,10 +17,14 @@ export const Categories = () => {
       <h1>Categories</h1>
       <div className="categories">
         {categories.map((category) => {
-          const { categoryId, title } = category;
+          const { _id, title } = category;
           return (
-            <div className="category" key={categoryId}>
-              <Link to={`/category/${categoryId}`} className="routerLink">
+            <div className="category" key={_id}>
+              <Link
+                to={"/category"}
+                state={{ categoryId: _id, title: title }}
+                className="routerLink"
+              >
                 <button className="btn outline categories">{title}</button>
               </Link>
             </div>
