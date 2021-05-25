@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Toast, VideoItemFlat } from "../../Components";
 import { useStore } from "../../Store/storeContext";
 import "./Playlist.css";
@@ -6,6 +7,7 @@ import "./Playlist.css";
 export const Playlist = () => {
   const { storeState } = useStore();
   const { playlist, videos, isLoading } = storeState;
+
   return (
     <div className="playlistContainer">
       {isLoading === null ? (
@@ -18,11 +20,18 @@ export const Playlist = () => {
               <div className="playlist" key={idx1}>
                 <h2>{playlistItem.title}</h2>
                 <div className="playlistVideos">
-                  {playlistItem.list.map((item, idx2) => {
+                  {playlistItem.videos.map((item, idx2) => {
                     const selectedVideo = videos.find(
-                      (video) => video.videoId === item
+                      (video) => video._id === item._id
                     );
-                    return <VideoItemFlat video={selectedVideo} key={idx2} />;
+                    return (
+                      <Link
+                        to={`/video-detail/${selectedVideo.videoId}`}
+                        key={idx2}
+                      >
+                        <VideoItemFlat video={selectedVideo} />
+                      </Link>
+                    );
                   })}
                 </div>
               </div>

@@ -42,7 +42,10 @@ export const VideoDetail = () => {
   return (
     <div className="videoDetailContainer">
       {isModalOpen && (
-        <PlaylistModal setIsModalOpen={setIsModalOpen} videoId={videoId} />
+        <PlaylistModal
+          setIsModalOpen={setIsModalOpen}
+          video_id={selectedVideo._id}
+        />
       )}
       {isLoginModalOpen && (
         <LoginModal

@@ -40,6 +40,7 @@ export const Signup = () => {
             likedVideos: videoLibrary.likedVideos,
             watchLaterVideos: videoLibrary.watchLaterVideos,
             historyVideos: videoLibrary.historyVideos,
+            playlist: videoLibrary.playlist,
           })
         );
       }

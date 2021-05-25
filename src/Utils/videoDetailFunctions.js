@@ -25,6 +25,9 @@ export const addToLikedVideos = async (
           _id: selectedVideo._id,
         };
         storeDispatch({ type: "ADD_TO_LIKED_VIDEO", payload: newVideo });
+        const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
+        storage.likedVideos.push(newVideo);
+        localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
       }
     } catch (error) {
       console.log(error);
@@ -57,6 +60,9 @@ export const addToWatchLater = async (
           _id: selectedVideo._id,
         };
         storeDispatch({ type: "ADD_TO_WATCH_LATER", payload: newVideo });
+        const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
+        storage.watchLaterVideos.push(newVideo);
+        localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
       }
     } catch (error) {
       console.log(error);
@@ -77,6 +83,9 @@ export const addToHistory = async (selectedVideo, storeDispatch, user) => {
         _id: selectedVideo._id,
       };
       storeDispatch({ type: "ADD_TO_HISTORY", payload: newVideo });
+      const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
+      storage.historyVideos.push(newVideo);
+      localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
     }
   } catch (error) {
     console.log(error);

@@ -27,15 +27,18 @@ const StoreReducer = (state, action) => {
         historyVideos: state.historyVideos.concat(action.payload),
       };
     case "ADD_NEW_PLAYLIST":
-      return { ...state, playlist: state.playlist.concat(action.payload) };
+      return { ...state, playlist: action.payload };
     case "ADD_VIDEO_TO_PLAYLIST":
       return {
         ...state,
         playlist: state.playlist.map((playlistItem) => {
-          if (playlistItem.playlistId === action.payload.playlistId) {
+          if (playlistItem._id === action.payload._id) {
+            const newVideo = {
+              _id: action.payload.video_id,
+            };
             return {
               ...playlistItem,
-              list: playlistItem.list.concat(action.payload.videoId),
+              videos: playlistItem.videos.concat(newVideo),
             };
           }
           return playlistItem;

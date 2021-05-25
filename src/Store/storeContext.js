@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 import StoreReducer from "./storeReducer";
-import { CategoryList, Playlist } from "../Server/VideoData";
+import { CategoryList } from "../Server/VideoData";
 
 const StoreContext = createContext();
 
@@ -19,7 +19,7 @@ if (loginStatus?.isUserLogin) {
     likedVideos: loginStatus.likedVideos,
     watchLaterVideos: loginStatus.watchLaterVideos,
     historyVideos: loginStatus.historyVideos,
-    playlist: Playlist,
+    playlist: loginStatus.playlist,
     isLoading: null,
   };
 } else {
@@ -29,7 +29,7 @@ if (loginStatus?.isUserLogin) {
     likedVideos: [],
     watchLaterVideos: [],
     historyVideos: [],
-    playlist: Playlist,
+    playlist: [],
     isLoading: null,
   };
 }
