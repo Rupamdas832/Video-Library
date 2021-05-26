@@ -17,11 +17,13 @@ if (loginStatus?.isUserLogin) {
       email: loginStatus.userEmail,
     },
     isUserLogin: true,
+    token: loginStatus.token,
   };
 } else {
   initialState = {
     user: null,
     isUserLogin: false,
+    token: "",
   };
 }
 

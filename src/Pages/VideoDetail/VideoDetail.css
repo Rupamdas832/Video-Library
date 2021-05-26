@@ -5,6 +5,14 @@
   justify-content: center;
   min-height: 100%;
 }
+.videoDetailContainer.sub {
+  padding: 2rem 0 0 1rem;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-height: 100%;
+  width: 100vw;
+}
 .videoDetail {
   width: 70%;
   height: 60vh;
@@ -55,17 +63,30 @@
 
 @media only screen and (max-width: 450px) {
   .videoDetailContainer {
-    padding: 2rem 0 0 0;
+    padding: 2rem 0 0 0rem;
+    margin: 0;
+    width: 85vw;
+  }
+  .videoDetailContainer.sub {
+    padding: 0 0 0 0;
+  }
+  .videoDetail {
+    margin-left: 3.5rem;
+    position: fixed;
+    top: 5rem;
+    width: 90%;
   }
   .videoDesc p {
     font-size: 0.8rem;
+    width: 100%;
   }
   .videoDetail {
-    width: 95%;
+    width: 100%;
     height: 50vh;
   }
   .videoDiv {
     height: 100%;
+    width: 100%;
   }
   .videoLike {
     width: 60%;

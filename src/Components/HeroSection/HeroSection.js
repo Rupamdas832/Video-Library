@@ -79,7 +79,7 @@ export const HeroSection = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <PrivateRoute path="/profile" element={<Profile />} />
-          <Route path="/video-detail" element={<VideoDetail />} />
+          <Route path="/video-detail/:videoId" element={<VideoDetail />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/category" element={<CategoryDetail />} />
           <PrivateRoute path="/playlist" element={<Playlist />} />

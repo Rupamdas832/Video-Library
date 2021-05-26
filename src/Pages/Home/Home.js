@@ -17,7 +17,7 @@ export const Home = () => {
           return (
             <Link
               className="routerLink"
-              to={"/video-detail"}
+              to={`/video-detail/${videoId}`}
               state={{ video: video }}
               key={videoId}
             >

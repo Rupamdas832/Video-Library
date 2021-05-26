@@ -1,35 +1,38 @@
-.loginContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 95vh;
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 95vh;
 }
-.formCard{
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
-    border: 1px solid var(--orange);
-    position: relative;
+.formCard {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+  border: 1px solid var(--orange);
+  position: relative;
 }
-.formInput input{
-    background-color: black;
-    color: var(--whitePale);
+.formInput input {
+  background-color: black;
+  color: var(--whitePale);
 }
-.redirectToSignup{
-    position: absolute;
-    bottom: 0;
+.redirectToSignup {
+  position: absolute;
+  bottom: 0;
 }
-.errorMessage{
-    background-color: rgba(255, 71, 71, 0.603);
-    padding: 0.5rem;
-    font-size: 1rem;
-    width: 100%;
-    text-align: center;
+.errorMessage {
+  background-color: rgba(255, 71, 71, 0.603);
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
 }
 
-@media only screen and (max-width: 450px){
-    .formCard{
-        width: 70%;
-        border: none;
-    }
+@media only screen and (max-width: 450px) {
+  .loginContainer {
+    padding-bottom: 3rem;
+  }
+  .formCard {
+    width: 70%;
+    border: none;
+  }
 }

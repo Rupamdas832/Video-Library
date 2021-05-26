@@ -15,7 +15,7 @@ export const Sidebar = () => {
 
   return (
     <div className="sidebarContainer">
-      <Link to="/">
+      <Link to="/" className="routerLink">
         <h1>GRAD</h1>
       </Link>
       <div className="sidebarNavContainer">

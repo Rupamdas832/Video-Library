@@ -20,7 +20,7 @@ export const Login = () => {
 
   const { userDispatch } = useUser();
 
-  const fetchVideoLibrary = async (user) => {
+  const fetchVideoLibrary = async (user, token) => {
     try {
       const {
         data: { videoLibrary },
@@ -32,6 +32,7 @@ export const Login = () => {
           "VideoLoginUser",
           JSON.stringify({
             isUserLogin: true,
+            token: token,
             userId: user._id,
             userName: user.name,
             userEmail: user.email,
@@ -51,7 +52,7 @@ export const Login = () => {
     storeDispatch({ type: "IS_LOADING", payload: "loggingIn" });
     try {
       const {
-        data: { user },
+        data: { user, token },
         status,
       } = await axios.post(`${URL}/login`, {
         email: email,
@@ -59,7 +60,7 @@ export const Login = () => {
       });
       if (status === 200) {
         userDispatch({ type: "LOAD_USER", payload: user });
-        fetchVideoLibrary(user);
+        fetchVideoLibrary(user, token);
         navigate(state?.from ? state.from : "/");
       }
     } catch (error) {

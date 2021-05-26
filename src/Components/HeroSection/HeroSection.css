@@ -1,6 +1,6 @@
-.heroSectionContainer{
-    min-height: 95vh;
-    margin-top: 5vh;
-    color: var(--whitePale);
-    padding: 1rem 0 0 1rem;
+.heroSectionContainer {
+  min-height: 95vh;
+  margin-top: 5vh;
+  color: var(--whitePale);
+  padding: 1rem 0 0 1rem;
 }

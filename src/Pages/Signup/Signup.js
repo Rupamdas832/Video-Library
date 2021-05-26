@@ -22,7 +22,7 @@ export const Signup = () => {
   const { storeState, storeDispatch } = useStore();
   const { isLoading } = storeState;
 
-  const fetchVideoLibrary = async (user) => {
+  const fetchVideoLibrary = async (user, token) => {
     try {
       const {
         data: { videoLibrary },
@@ -34,6 +34,7 @@ export const Signup = () => {
           "VideoLoginUser",
           JSON.stringify({
             isUserLogin: true,
+            token: token,
             userId: user._id,
             userName: user.name,
             userEmail: user.email,
@@ -53,7 +54,7 @@ export const Signup = () => {
     storeDispatch({ type: "IS_LOADING", payload: "signup" });
     try {
       const {
-        data: { user },
+        data: { user, token },
         status,
       } = await axios.post(`${URL}/signup`, {
         name: name,
@@ -62,7 +63,7 @@ export const Signup = () => {
       });
       if (status === 201) {
         userDispatch({ type: "LOAD_USER", payload: user });
-        fetchVideoLibrary(user);
+        fetchVideoLibrary(user, token);
         navigate(state?.from ? state.from : "/");
       }
     } catch (error) {

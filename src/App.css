@@ -1,49 +1,48 @@
-:root{
-    --index1: 1;
-    --index2: 2;
-    --index3: 3;
-    --index4: 4;
-    --index5:5;
+:root {
+  --index1: 1;
+  --index2: 2;
+  --index3: 3;
+  --index4: 4;
+  --index5: 5;
 }
-.app{
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+.app {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 }
-.leftAppSection{
-    display: flex;
-    flex-direction: column;
-    justify-content: baseline;
-    height: 100vh;
-    width: 10vw;
-    position: fixed;
-    padding: 0 1rem;
-    background-color: var(--orange);
-    z-index: var(--index3);
+.leftAppSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  height: 100vh;
+  width: 10vw;
+  position: fixed;
+  padding: 0 1rem;
+  background-color: var(--orange);
+  z-index: var(--index3);
 }
-.rightAppSection{
-    display: flex;
-    flex-direction: column;
-    margin-left: 11rem;
-    background-color: rgba(0, 0, 0, 0.925);
-    color: var(--whitePale);
-    
+.rightAppSection {
+  display: flex;
+  flex-direction: column;
+  margin-left: 11rem;
+  background-color: rgba(0, 0, 0, 0.925);
+  color: var(--whitePale);
 }
-.routerLink{
-    text-decoration: none;
+.routerLink {
+  text-decoration: none;
 }
 
-@media only screen and (max-width: 450px){
-    .app{
-        display: flex;
-        flex-direction: column;
-    }
-    .leftAppSection{
-        position: fixed;
-        bottom: 0;
-        height: auto;
-        width: 100%;
-    }
-    .rightAppSection{
-        margin-left: -0.5rem;
-    }
+@media only screen and (max-width: 450px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+  }
+  .leftAppSection {
+    position: fixed;
+    bottom: 0;
+    height: auto;
+    width: 100vw;
+  }
+  .rightAppSection {
+    margin-left: -0.5rem;
+  }
 }
