@@ -44,20 +44,24 @@ export const WatchLater = () => {
       ) : (
         <div>
           <h1>Watch Later</h1>
-          <div className="watchLaterVideoList">
-            {watchLaterVideos.map((item) => {
-              const foundVideo = videos.find((video) => video._id === item._id);
-              return (
-                <Link
-                  className="routerLink"
-                  to={`/video-detail/${foundVideo.videoId}`}
-                  key={item._id}
-                >
-                  <VideoItemFlat video={foundVideo} />
-                </Link>
-              );
-            })}
-          </div>
+          {watchLaterVideos.length === 0 ? (
+            <p>No videos to watch later</p>
+          ) : (
+            <div className="watchLaterVideoList">
+              {watchLaterVideos.map((item) => {
+                const foundVideo = videos.find(
+                  (video) => video._id === item._id
+                );
+                return (
+                  <VideoItemFlat
+                    video={foundVideo}
+                    key={foundVideo._id}
+                    section="watchLaterVideos"
+                  />
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </div>

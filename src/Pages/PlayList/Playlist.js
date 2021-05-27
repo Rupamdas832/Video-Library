@@ -54,12 +54,12 @@ export const Playlist = () => {
                       (video) => video._id === item._id
                     );
                     return (
-                      <Link
-                        to={`/video-detail/${selectedVideo.videoId}`}
-                        key={idx2}
-                      >
-                        <VideoItemFlat video={selectedVideo} />
-                      </Link>
+                      <VideoItemFlat
+                        video={selectedVideo}
+                        key={selectedVideo._id}
+                        section="playlist"
+                        playlistId={playlistItem._id}
+                      />
                     );
                   })}
                 </div>

@@ -22,8 +22,7 @@ export const CategoryDetail = () => {
             return (
               <Link
                 className="routerLink"
-                to={"/video-detail"}
-                state={{ video: video }}
+                to={`/video-detail/${video.videoId}`}
                 key={video._id}
               >
                 <VideoItem video={video} />

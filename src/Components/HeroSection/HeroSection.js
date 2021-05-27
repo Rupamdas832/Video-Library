@@ -68,6 +68,28 @@ export const HeroSection = () => {
 
   return (
     <div className="heroSectionContainer">
+      {isLoading === "likeVideo" ? (
+        <Toast message="Adding to liked videos..." />
+      ) : null}
+      {isLoading === "removeLikeVideo" ? (
+        <Toast message="Removing from liked videos..." />
+      ) : null}
+      {isLoading === "watchLater" ? (
+        <Toast message="Adding to watch later..." />
+      ) : null}
+      {isLoading === "removeWatchLater" ? (
+        <Toast message="Removing from watch later..." />
+      ) : null}
+      {isLoading === "playlistVideo" ? (
+        <Toast message="Adding video to playlist" />
+      ) : null}
+      {isLoading === "removePlaylistVideo" ? (
+        <Toast message="Removing video from playlist" />
+      ) : null}
+      {isLoading === "removeHistoryVideo" ? (
+        <Toast message="Removing video from history" />
+      ) : null}
+      {isLoading === "playlist" ? <Toast message="Creating playlist" /> : null}
       {isLoading === "fetchingVideos" ? (
         <Toast message="Fetching Videos..." />
       ) : (

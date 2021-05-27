@@ -59,11 +59,12 @@ export const Login = () => {
         password: password,
       });
       if (status === 200) {
-        userDispatch({ type: "LOAD_USER", payload: user });
+        userDispatch({ type: "LOAD_USER", payload: { user, token } });
         fetchVideoLibrary(user, token);
         navigate(state?.from ? state.from : "/");
       }
     } catch (error) {
+      console.log(error);
       setError(error.response.data.message);
     } finally {
       storeDispatch({ type: "IS_LOADING", payload: "success" });

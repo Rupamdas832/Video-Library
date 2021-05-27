@@ -62,7 +62,7 @@ export const Signup = () => {
         password: password,
       });
       if (status === 201) {
-        userDispatch({ type: "LOAD_USER", payload: user });
+        userDispatch({ type: "LOAD_USER", payload: { user, token } });
         fetchVideoLibrary(user, token);
         navigate(state?.from ? state.from : "/");
       }

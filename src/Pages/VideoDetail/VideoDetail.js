@@ -36,18 +36,6 @@ export const VideoDetail = () => {
 
   return (
     <div className="videoDetailContainer">
-      {isLoading === "likeVideo" ? (
-        <Toast message="Adding to liked videos..." />
-      ) : null}
-      {isLoading === "removeLikeVideo" ? (
-        <Toast message="Removing from liked videos..." />
-      ) : null}
-      {isLoading === "watchLater" ? (
-        <Toast message="Adding to watch later..." />
-      ) : null}
-      {isLoading === "removeWatchLater" ? (
-        <Toast message="Removing from watch later..." />
-      ) : null}
       {isLoading === null ? (
         <Toast message="Removing from watch later..." />
       ) : (

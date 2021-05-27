@@ -74,10 +74,6 @@ export const PlaylistModal = ({ setIsModalOpen, video_id }) => {
 
   return (
     <div className="modal">
-      {isLoading === "playlistVideo" ? (
-        <Toast message="Adding video to playlist" />
-      ) : null}
-      {isLoading === "playlist" ? <Toast message="Creating playlist" /> : null}
       <div className="modalBox">
         <h3>Playlist</h3>
         <ul>

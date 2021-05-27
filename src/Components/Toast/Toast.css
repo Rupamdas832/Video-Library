@@ -2,6 +2,7 @@
   position: fixed;
   right: 1rem;
   top: 5rem;
+  z-index: var(--index4);
 }
 
 @media only screen and (max-width: 450px) {

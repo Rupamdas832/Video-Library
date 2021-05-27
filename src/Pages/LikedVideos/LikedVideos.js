@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Toast, VideoItemFlat } from "../../Components";
 import { useStore, useUser } from "../../Store";
 import "./LikedVideos.css";
@@ -54,13 +54,11 @@ export const LikedVideos = () => {
                     (video) => video._id === item._id
                   );
                   return (
-                    <Link
-                      className="routerLink"
-                      to={`/video-detail/${foundVideo.videoId}`}
-                      key={item._id}
-                    >
-                      <VideoItemFlat video={foundVideo} />
-                    </Link>
+                    <VideoItemFlat
+                      video={foundVideo}
+                      key={foundVideo._id}
+                      section="likedVideos"
+                    />
                   );
                 })}
               </div>

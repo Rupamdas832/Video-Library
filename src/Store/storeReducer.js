@@ -22,6 +22,7 @@ const StoreReducer = (state, action) => {
         likedVideos: action.payload.likedVideos,
         watchLaterVideos: action.payload.watchLaterVideos,
         historyVideos: action.payload.historyVideos,
+        playlist: action.payload.playlist,
         videos: state.videos.map((video) => {
           const foundLikedVideo = action.payload.likedVideos.find(
             (item) => item._id === video._id
@@ -108,6 +109,18 @@ const StoreReducer = (state, action) => {
           }
           return video;
         }),
+      };
+    case "REMOVE_FROM_HISTORY":
+      return {
+        ...state,
+        historyVideos: state.historyVideos.filter(
+          (item) => item._id !== action.payload._id
+        ),
+      };
+    case "REMOVE_FROM_PLAYLIST":
+      return {
+        ...state,
+        playlist: action.payload,
       };
     default:
       return state;
