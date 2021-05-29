@@ -134,11 +134,11 @@ export const VideoDetail = () => {
                   </div>
                   <div className="videoChannelName">
                     <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNStYe1LPjbp6FEUZI4BWewc8M56OBYf2Wyg&usqp=CAU"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpX-CIEliwCQf3b_V8qSLCaTVx-9Lnq76JHQ&usqp=CAU"
                       className="avatar"
                       alt="profile"
                     />
-                    <p>{channelName}</p>
+                    <p style={{ color: "gray" }}>{channelName}</p>
                   </div>
                 </div>
               );

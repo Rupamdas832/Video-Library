@@ -25,7 +25,7 @@ export const Categories = () => {
                 state={{ categoryId: _id, title: title }}
                 className="routerLink"
               >
-                <button className="btn outline categories">{title}</button>
+                <button className="btn unstyled categories">{title}</button>
               </Link>
             </div>
           );
