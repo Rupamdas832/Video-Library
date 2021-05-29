@@ -20,7 +20,7 @@ export const VideoDetail = () => {
   const { likedVideos, watchLaterVideos, isLoading, videos } = storeState;
 
   const { userState } = useUser();
-  const { isUserLogin, user } = userState;
+  const { isUserLogin, token } = userState;
 
   const { videoId: videoIdFromParam } = useParams();
 
@@ -65,7 +65,7 @@ export const VideoDetail = () => {
                       width="100%"
                       height="100%"
                       onPlay={() =>
-                        addToHistory(selectedVideo, storeDispatch, user)
+                        addToHistory(selectedVideo, storeDispatch, token)
                       }
                     />
                   </div>
@@ -83,7 +83,7 @@ export const VideoDetail = () => {
                                 selectedVideo,
                                 likedVideos,
                                 storeDispatch,
-                                user
+                                token
                               )
                             : null
                         }
@@ -105,7 +105,7 @@ export const VideoDetail = () => {
                                 selectedVideo,
                                 watchLaterVideos,
                                 storeDispatch,
-                                user
+                                token
                               )
                             : null
                         }

@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Toast, VideoItemFlat } from "../../Components";
 import { useStore, useUser } from "../../Store";
+import { URL } from "../../Server/serverURL";
 import "./WatchLater.css";
 
 export const WatchLater = () => {
@@ -14,14 +15,11 @@ export const WatchLater = () => {
 
   const navigate = useNavigate();
 
-  const fetchData = async () => {
+  const authenticateUser = async () => {
     try {
-      await axios.get(
-        "https://Video-library-server-github.rupamdas.repl.co/user",
-        {
-          headers: { authorization: token },
-        }
-      );
+      await axios.get(`${URL}/user`, {
+        headers: { authorization: token },
+      });
     } catch (error) {
       console.log(error.response.data);
       if (error.response.status === 401) {
@@ -34,7 +32,7 @@ export const WatchLater = () => {
     window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
-    fetchData();
+    authenticateUser();
   }, [token]);
 
   return (

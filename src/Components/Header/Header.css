@@ -9,7 +9,6 @@
   justify-content: space-around;
   height: 7vh;
   background-color: black;
-  box-shadow: 1px 5px 10px rgba(255, 216, 45, 0.185);
 }
 .navSearch.ecommerce {
   width: 400px;
@@ -46,11 +45,13 @@
   .navbar.ecommerce {
     justify-content: center;
     border-top: 1px solid none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.233);
   }
   .navSearch.ecommerce {
     width: 200px;
     margin-left: 5rem;
     font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.233);
   }
   .dropdownContent {
     margin-left: -7rem;

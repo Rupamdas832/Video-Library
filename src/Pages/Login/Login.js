@@ -25,7 +25,9 @@ export const Login = () => {
       const {
         data: { videoLibrary },
         status,
-      } = await axios.get(`${URL}/video-library/${user._id}`);
+      } = await axios.get(`${URL}/video-library`, {
+        headers: { authorization: token },
+      });
       if (status === 200) {
         storeDispatch({ type: "LOAD_VIDEO_LIBRARY", payload: videoLibrary });
         localStorage.setItem(

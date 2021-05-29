@@ -4,16 +4,15 @@ import { useStore, useUser } from "../../Store";
 import { URL } from "../../Server/serverURL";
 
 import "./PlaylistModal.css";
-import { Toast } from "../Toast/Toast";
 
 export const PlaylistModal = ({ setIsModalOpen, video_id }) => {
   const [playlistName, setPlaylistName] = useState("");
 
   const { storeState, storeDispatch } = useStore();
-  const { playlist, isLoading } = storeState;
+  const { playlist } = storeState;
 
   const { userState } = useUser();
-  const { user } = userState;
+  const { token } = userState;
 
   const addNewPlaylist = async () => {
     if (playlistName === "") {
@@ -24,11 +23,17 @@ export const PlaylistModal = ({ setIsModalOpen, video_id }) => {
         const {
           data: { playlist },
           status,
-        } = await axios.post(`${URL}/video-library/${user._id}`, {
-          _id: video_id,
-          section: "playlistVideos",
-          title: playlistName,
-        });
+        } = await axios.post(
+          `${URL}/video-library/`,
+          {
+            _id: video_id,
+            section: "playlistVideos",
+            title: playlistName,
+          },
+          {
+            headers: { authorization: token },
+          }
+        );
         if (status === 201) {
           storeDispatch({ type: "ADD_NEW_PLAYLIST", payload: playlist });
           const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
@@ -51,9 +56,15 @@ export const PlaylistModal = ({ setIsModalOpen, video_id }) => {
       const {
         data: { playlist },
         status,
-      } = await axios.post(`${URL}/video-library/${user._id}/${_id}`, {
-        _id: video_id,
-      });
+      } = await axios.post(
+        `${URL}/video-library/${_id}`,
+        {
+          _id: video_id,
+        },
+        {
+          headers: { authorization: token },
+        }
+      );
       if (status === 201) {
         const videoDetail = {
           _id: _id,

@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.651);
+  background-color: rgba(0, 0, 0, 0.822);
   position: fixed;
   z-index: var(--index4);
   width: 100vw;
@@ -12,6 +12,7 @@
 .modalBox {
   width: auto;
   color: black;
+  background-color: rgb(190, 189, 189);
 }
 .modalBox ul {
   margin: 0.5rem 0;

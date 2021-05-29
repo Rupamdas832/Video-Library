@@ -12,21 +12,19 @@ export const VideoItemFlat = ({ video, section, playlistId }) => {
   const { storeDispatch } = useStore();
 
   const { userState } = useUser();
-  const { user } = userState;
+  const { token } = userState;
 
   const deleteFunction = async () => {
     if (section === "likedVideos") {
       storeDispatch({ type: "IS_LOADING", payload: "removeLikeVideo" });
       try {
-        const { status } = await axios.delete(
-          `${URL}/video-library/${user._id}`,
-          {
-            data: {
-              _id: _id,
-              section: section,
-            },
-          }
-        );
+        const { status } = await axios.delete(`${URL}/video-library/`, {
+          headers: { authorization: token },
+          data: {
+            _id: _id,
+            section: section,
+          },
+        });
         if (status === 202) {
           const newVideo = {
             _id: _id,
@@ -46,15 +44,13 @@ export const VideoItemFlat = ({ video, section, playlistId }) => {
     } else if (section === "watchLaterVideos") {
       storeDispatch({ type: "IS_LOADING", payload: "removeWatchLater" });
       try {
-        const { status } = await axios.delete(
-          `${URL}/video-library/${user._id}`,
-          {
-            data: {
-              _id: _id,
-              section: section,
-            },
-          }
-        );
+        const { status } = await axios.delete(`${URL}/video-library/`, {
+          headers: { authorization: token },
+          data: {
+            _id: _id,
+            section: section,
+          },
+        });
         if (status === 202) {
           const newVideo = {
             _id: _id,
@@ -77,14 +73,12 @@ export const VideoItemFlat = ({ video, section, playlistId }) => {
         const {
           status,
           data: { playlist },
-        } = await axios.delete(
-          `${URL}/video-library/${user._id}/${playlistId}`,
-          {
-            data: {
-              _id: _id,
-            },
-          }
-        );
+        } = await axios.delete(`${URL}/video-library/${playlistId}`, {
+          headers: { authorization: token },
+          data: {
+            _id: _id,
+          },
+        });
         if (status === 202) {
           storeDispatch({ type: "REMOVE_FROM_PLAYLIST", payload: playlist });
           const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
@@ -92,7 +86,7 @@ export const VideoItemFlat = ({ video, section, playlistId }) => {
           localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
         }
       } catch (error) {
-        console.log(error);
+        console.log(error.response.data);
       } finally {
         storeDispatch({ type: "IS_LOADING", payload: "success" });
       }

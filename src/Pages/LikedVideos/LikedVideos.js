@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Toast, VideoItemFlat } from "../../Components";
 import { useStore, useUser } from "../../Store";
+import { URL } from "../../Server/serverURL";
 import "./LikedVideos.css";
 
 export const LikedVideos = () => {
@@ -14,14 +15,11 @@ export const LikedVideos = () => {
 
   const navigate = useNavigate();
 
-  const fetchData = async () => {
+  const authenticateUser = async () => {
     try {
-      await axios.get(
-        "https://Video-library-server-github.rupamdas.repl.co/user",
-        {
-          headers: { authorization: token },
-        }
-      );
+      await axios.get(`${URL}/user`, {
+        headers: { authorization: token },
+      });
     } catch (error) {
       console.log(error.response.data);
       if (error.response.status === 401) {
@@ -34,7 +32,7 @@ export const LikedVideos = () => {
     window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
-    fetchData();
+    authenticateUser();
   }, [token]);
 
   return (
