@@ -4,3 +4,8 @@
   color: var(--whitePale);
   padding: 1rem 0 0 1rem;
 }
+
+.headingMain {
+  letter-spacing: 2px;
+  font-weight: 300;
+}

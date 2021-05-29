@@ -78,7 +78,7 @@ export const Login = () => {
         <Toast message="Authenticating Details..." />
       ) : null}
       <div className="formCard">
-        <h1>Login</h1>
+        <h1 className="headingMain">Login</h1>
         <div className="formInput">
           <label>Email</label>
           <input

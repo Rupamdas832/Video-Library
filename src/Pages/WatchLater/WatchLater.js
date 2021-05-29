@@ -41,7 +41,7 @@ export const WatchLater = () => {
         <Toast message="Fetching Videos..." />
       ) : (
         <div>
-          <h1>Watch Later</h1>
+          <h1 className="headingMain">Watch Later</h1>
           {watchLaterVideos.length === 0 ? (
             <p>No videos to watch later</p>
           ) : (

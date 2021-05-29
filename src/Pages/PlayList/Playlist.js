@@ -41,7 +41,7 @@ export const Playlist = () => {
         <Toast message="Fetching Videos..." />
       ) : (
         <div>
-          <h1>Playlist</h1>
+          <h1 className="headingMain">Playlist</h1>
           {playlist.map((playlistItem, idx1) => {
             return (
               <div className="playlist" key={idx1}>

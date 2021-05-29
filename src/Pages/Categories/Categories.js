@@ -14,7 +14,7 @@ export const Categories = () => {
 
   return (
     <div className="categoryContainer">
-      <h1>Categories</h1>
+      <h1 className="headingMain">Categories</h1>
       <div className="categories">
         {categories.map((category) => {
           const { _id, title } = category;

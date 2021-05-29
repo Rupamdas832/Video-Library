@@ -41,7 +41,7 @@ export const LikedVideos = () => {
         <Toast message="Fetching Videos..." />
       ) : (
         <div>
-          <h1>Liked Videos</h1>
+          <h1 className="headingMain">Liked Videos</h1>
           <div>
             {likedVideos.length === 0 ? (
               <p>No liked videos</p>

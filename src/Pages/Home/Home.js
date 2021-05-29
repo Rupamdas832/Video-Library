@@ -10,7 +10,6 @@ export const Home = () => {
 
   return (
     <div className="homeContainer">
-      <h1>Home</h1>
       <div className="homeVideoList">
         {videos.map((video) => {
           const { videoId } = video;

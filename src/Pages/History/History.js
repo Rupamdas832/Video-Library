@@ -78,7 +78,7 @@ export const History = () => {
         <Toast message="Fetching Videos..." />
       ) : (
         <div className="historyContainer">
-          <h1>History</h1>
+          <h1 className="headingMain">History</h1>
           <div className="historyVideoList">
             {historyVideos.length === 0 ? (
               <p>No history! Watch some videos</p>

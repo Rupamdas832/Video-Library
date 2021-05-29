@@ -1,19 +1,19 @@
-.homeContainer{
-    padding: 0 0 0 1rem;
+.homeContainer {
+  padding: 2rem 0 0 0rem;
 }
-.homeVideoList{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+.homeVideoList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-@media only screen and (max-width: 450px){
-    .homeContainer{
-        padding-bottom: 6rem;
-    }
-    .homeVideoList{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+@media only screen and (max-width: 450px) {
+  .homeContainer {
+    padding-bottom: 6rem;
+  }
+  .homeVideoList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

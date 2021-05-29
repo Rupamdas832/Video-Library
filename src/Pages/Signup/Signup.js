@@ -78,7 +78,7 @@ export const Signup = () => {
     <div className="signupContainer">
       {isLoading === "signup" ? <Toast message="Signing up..." /> : null}
       <div className="formCard">
-        <h1>Signup</h1>
+        <h1 className="headingMain">Signup</h1>
         <div className="formInput">
           <label>Name</label>
           <input

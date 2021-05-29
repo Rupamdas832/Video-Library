@@ -15,7 +15,7 @@ export const CategoryDetail = () => {
 
   return (
     <div className="categoryContainer">
-      <h1>{title}</h1>
+      <h1 className="headingMain">{title}</h1>
       <div className="categoryVideoList">
         {videos.map((video) => {
           if (video.categoryId === categoryId) {
