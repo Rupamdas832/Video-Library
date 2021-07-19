@@ -20,6 +20,11 @@ export const Login = () => {
 
   const { userDispatch } = useUser();
 
+  const fillGuestCredentials = () => {
+    setEmail("rupam@gmail.com");
+    setPassword("Rupam@123");
+  };
+
   const fetchVideoLibrary = async (user, token) => {
     try {
       const {
@@ -85,6 +90,7 @@ export const Login = () => {
             placeholder="Type your email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
         <div className="formInput">
@@ -93,8 +99,12 @@ export const Login = () => {
             placeholder="Type your password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
         </div>
+        <button className="btn outline guest" onClick={fillGuestCredentials}>
+          Fill Guest Credentials
+        </button>
         <button className="formBtn" onClick={loginWithCredentials}>
           Login
         </button>

@@ -2,11 +2,13 @@ import React from "react";
 import "./Header.css";
 import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../../Store";
+import { useStore, useUser } from "../../Store";
 
 export const Header = () => {
   const { userState, userDispatch } = useUser();
   const { user, isUserLogin } = userState;
+
+  const { storeDispatch } = useStore();
 
   const navigate = useNavigate();
 
@@ -23,7 +25,14 @@ export const Header = () => {
           <label>
             <FaSearch />
           </label>
-          <input placeholder="Not working currently...WIP" />
+          <input
+            className="search"
+            placeholder="Search videos by Title or Channel"
+            type="text"
+            onChange={(e) =>
+              storeDispatch({ type: "UPDATE_SEARCH", payload: e.target.value })
+            }
+          />
         </div>
         <div className="navAction ecommerce">
           {isUserLogin && user ? (

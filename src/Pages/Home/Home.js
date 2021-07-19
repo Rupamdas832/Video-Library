@@ -6,12 +6,23 @@ import { useStore } from "../../Store";
 
 export const Home = () => {
   const { storeState } = useStore();
-  const { videos } = storeState;
+  const { videos, search } = storeState;
+
+  const compare = ({ title, channelName }, searchData) => {
+    return (
+      title.toLowerCase().includes(searchData) ||
+      channelName.toLowerCase().includes(searchData)
+    );
+  };
+
+  const searchedVideos = videos.filter((video) =>
+    compare(video, search.toLowerCase())
+  );
 
   return (
     <div className="homeContainer">
       <div className="homeVideoList">
-        {videos.map((video) => {
+        {searchedVideos.map((video) => {
           const { videoId } = video;
           return (
             <Link

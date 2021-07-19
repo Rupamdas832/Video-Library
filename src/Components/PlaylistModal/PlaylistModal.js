@@ -51,35 +51,48 @@ export const PlaylistModal = ({ setIsModalOpen, video_id }) => {
   };
 
   const addVideoToPlaylist = async (_id) => {
-    storeDispatch({ type: "IS_LOADING", payload: "playlistVideo" });
-    try {
-      const {
-        data: { playlist },
-        status,
-      } = await axios.post(
-        `${URL}/video-library/${_id}`,
-        {
-          _id: video_id,
-        },
-        {
-          headers: { authorization: token },
+    let foundPlaylist = playlist.find((item) => item._id === _id);
+    let foundVideo = foundPlaylist.videos.find(
+      (video) => video._id === video_id
+    );
+    if (foundVideo) {
+      setIsModalOpen(false);
+      return null;
+    } else {
+      storeDispatch({ type: "IS_LOADING", payload: "playlistVideo" });
+      try {
+        const {
+          data: { playlist },
+          status,
+        } = await axios.post(
+          `${URL}/video-library/${_id}`,
+          {
+            _id: video_id,
+          },
+          {
+            headers: { authorization: token },
+          }
+        );
+        if (status === 201) {
+          const videoDetail = {
+            _id: _id,
+            video_id: video_id,
+          };
+          storeDispatch({
+            type: "ADD_VIDEO_TO_PLAYLIST",
+            payload: videoDetail,
+          });
+          const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
+          storage.playlist = playlist;
+          localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
         }
-      );
-      if (status === 201) {
-        const videoDetail = {
-          _id: _id,
-          video_id: video_id,
-        };
-        storeDispatch({ type: "ADD_VIDEO_TO_PLAYLIST", payload: videoDetail });
-        const storage = JSON.parse(localStorage.getItem("VideoLoginUser"));
-        storage.playlist = playlist;
-        localStorage.setItem("VideoLoginUser", JSON.stringify(storage));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        storeDispatch({ type: "IS_LOADING", payload: "success" });
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      storeDispatch({ type: "IS_LOADING", payload: "success" });
     }
+
     setIsModalOpen(false);
   };
 

@@ -122,6 +122,11 @@ const StoreReducer = (state, action) => {
         ...state,
         playlist: action.payload,
       };
+    case "UPDATE_SEARCH":
+      return {
+        ...state,
+        search: action.payload,
+      };
     default:
       return state;
   }

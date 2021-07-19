@@ -8,7 +8,7 @@ export const Profile = () => {
   return (
     <div className="profileContainer">
       <p>
-        Hii{" "}
+        Hey{" "}
         <span style={{ color: "var(--orange)" }}>
           {user.name.toUpperCase()}
         </span>

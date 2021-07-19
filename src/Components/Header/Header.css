@@ -20,6 +20,10 @@
   color: var(--whitePale);
 }
 
+.navSearch.ecommerce input:focus {
+  outline: none;
+}
+
 .btnFloat {
   color: black;
 }

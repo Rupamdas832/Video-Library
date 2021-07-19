@@ -20,6 +20,7 @@ if (loginStatus?.isUserLogin) {
     historyVideos: loginStatus.historyVideos,
     playlist: loginStatus.playlist,
     isLoading: null,
+    search: "",
   };
 } else {
   initialState = {
@@ -30,6 +31,7 @@ if (loginStatus?.isUserLogin) {
     historyVideos: [],
     playlist: [],
     isLoading: null,
+    search: "",
   };
 }
 

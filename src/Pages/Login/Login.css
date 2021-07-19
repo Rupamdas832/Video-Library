@@ -26,6 +26,13 @@
   width: 100%;
   text-align: center;
 }
+.btn.outline.guest {
+  color: white;
+  font-size: 0.8rem;
+}
+.btn.outline.guest:hover {
+  color: black;
+}
 
 @media only screen and (max-width: 450px) {
   .loginContainer {
