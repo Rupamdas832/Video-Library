@@ -91,6 +91,7 @@ export const Login = () => {
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            required
           />
         </div>
         <div className="formInput">
@@ -100,11 +101,10 @@ export const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
+            required
           />
         </div>
-        <button className="btn outline guest" onClick={fillGuestCredentials}>
-          Fill Guest Credentials
-        </button>
+
         <button className="formBtn" onClick={loginWithCredentials}>
           Login
         </button>
@@ -114,6 +114,9 @@ export const Login = () => {
             new to GradTube! <Link to="/signup"> Signup here</Link>
           </p>
         </div>
+        <button className="btn outline guest" onClick={fillGuestCredentials}>
+          Fill Guest Credentials
+        </button>
       </div>
     </div>
   );

@@ -29,6 +29,7 @@
 .btn.outline.guest {
   color: white;
   font-size: 0.8rem;
+  margin: 1rem 0 1rem 0;
 }
 .btn.outline.guest:hover {
   color: black;
